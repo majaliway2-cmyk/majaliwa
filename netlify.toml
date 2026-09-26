@@ -1,0 +1,21 @@
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/create-payment"
+  to = "/.netlify/functions/create-payment"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/payment-status"
+  to = "/.netlify/functions/payment-status"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/payment-webhook"
+  to = "/.netlify/functions/payment-webhook"
+  status = 200
+  force = true

@@ -1,0 +1,14 @@
+{
+    "name": "majaliwa-yahaya-website",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "test": "node --test"
+    },
+    "engines": {
+        "node": ">=20"
+    },
+    "dependencies": {
+        "@netlify/blobs": "^10.5.0"
+    }
+}
