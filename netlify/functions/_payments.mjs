@@ -181,21 +181,34 @@ export function paymentStore() {
 export async function fetchFlutterwave(path, { secretKey, method = "GET", body, fetcher = fetch } = {}) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 12_000);
+    const endpoint = `https://api.flutterwave.com/v3${path}`;
     try {
-        const response = await fetcher(`https://api.flutterwave.com/v3${path}`, {
-            method,
-            headers: {
-                Authorization: `Bearer ${secretKey}`,
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            ...(body ? { body: JSON.stringify(body) } : {}),
-            signal: controller.signal
-        });
+        let response;
+        try {
+            response = await fetcher(endpoint, {
+                method,
+                headers: {
+                    Authorization: `Bearer ${secretKey}`,
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                ...(body ? { body: JSON.stringify(body) } : {}),
+                signal: controller.signal
+            });
+        } catch (error) {
+            if (error && typeof error === "object") error.endpoint = endpoint;
+            throw error;
+        }
         const result = await response.json().catch(() => null);
         if (!response.ok || result?.status !== "success") {
             const error = new Error("flutterwave_request_failed");
+            error.name = "FlutterwaveRequestError";
             error.status = response.status;
+            error.endpoint = endpoint;
+            error.providerRejection = (response.status >= 400 && response.status < 500) || result?.status === "error";
+            error.providerError = typeof result?.error === "string" ? result.error : result?.error?.message;
+            error.providerMessage = result?.message;
+            error.providerCode = result?.code ?? result?.error?.code ?? result?.data?.code;
             throw error;
         }
         return result.data;

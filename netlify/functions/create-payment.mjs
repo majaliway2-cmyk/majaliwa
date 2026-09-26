@@ -14,8 +14,44 @@ import {
 
 function errorResponse(error, headers = {}) {
     const status = error instanceof PaymentError ? error.status : 502;
-    const code = error instanceof PaymentError ? error.code : error.name === "AbortError" ? "gateway_timeout" : "gateway_unavailable";
+    const timedOut = error.name === "AbortError" || error.name === "TimeoutError" || error.code === "ABORT_ERR";
+    const code = error instanceof PaymentError ? error.code : timedOut ? "gateway_timeout" : error.providerRejection ? "gateway_rejected" : "gateway_unavailable";
     return jsonResponse({ error: { code } }, status, headers);
+}
+
+function diagnosticText(value, sensitiveValues) {
+    if (typeof value !== "string" && typeof value !== "number") return null;
+    let text = String(value).replace(/[\r\n\t]/g, " ").slice(0, 300);
+    text = text
+        .replace(/\bAuthorization\s*:\s*Bearer\s+\S+/gi, "[redacted-authorization]")
+        .replace(/\bBearer\s+\S+/gi, "[redacted-authorization]")
+        .replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g, "[redacted-email]")
+        .replace(/\+?255(?:[\s()-]*\d){9}/g, "[redacted-phone]")
+        .replace(/0[1-9](?:[\s()-]*\d){8}/g, "[redacted-phone]");
+    for (const sensitiveValue of sensitiveValues) {
+        if (typeof sensitiveValue === "string" && sensitiveValue) {
+            text = text.split(sensitiveValue).join("[redacted]");
+        }
+    }
+    return text;
+}
+
+function logGatewayFailure(error, txRef, config, order, logger) {
+    const timedOut = error.name === "AbortError" || error.name === "TimeoutError" || error.code === "ABORT_ERR";
+    const sensitiveValues = [config.secretKey, config.webhookSecret, order.email, order.phone];
+    const diagnostic = {
+        event: "flutterwave_request_failed",
+        endpoint: diagnosticText(error.endpoint || "https://api.flutterwave.com/v3/payments", sensitiveValues),
+        transactionReference: txRef,
+        httpStatus: Number.isInteger(error.status) ? error.status : null,
+        providerError: diagnosticText(error.providerError, sensitiveValues),
+        providerMessage: diagnosticText(error.providerMessage, sensitiveValues),
+        providerCode: diagnosticText(error.providerCode, sensitiveValues),
+        internalErrorName: diagnosticText(error.name || "Error", sensitiveValues),
+        timeout: timedOut,
+        providerRejection: error.providerRejection === true
+    };
+    logger(JSON.stringify(diagnostic));
 }
 
 export async function createPayment(request, dependencies = {}) {
@@ -95,7 +131,10 @@ export async function createPayment(request, dependencies = {}) {
             });
             return jsonResponse({ checkoutUrl: checkoutUrl.href, tx_ref: txRef }, 201, headers);
         } catch (error) {
-            const uncertain = error.name === "AbortError" || error.status >= 500 || error.status === undefined;
+            const logger = dependencies.logger || ((entry) => console.error(entry));
+            logGatewayFailure(error, txRef, config, order, logger);
+            const timedOut = error.name === "AbortError" || error.name === "TimeoutError" || error.code === "ABORT_ERR";
+            const uncertain = !error.providerRejection && (timedOut || error.status >= 500 || error.status === undefined);
             await updatePayment(store, txRef, (current) => {
                 const { email, phone, ...receiptRecord } = current;
                 return {

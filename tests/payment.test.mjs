@@ -127,9 +127,14 @@ test("creates only a hosted checkout and reuses it for a duplicate idempotency k
     const fetchFlutterwave = async (path, options) => {
         providerRequests += 1;
         assert.equal(path, "/payments");
+        assert.equal(options.method, "POST");
+        assert.equal(options.body.amount, 500000);
         assert.equal(options.body.currency, "TZS");
+        assert.equal(options.body.redirect_url, "https://majaliwa.example/contact.html#payment");
         assert.equal(options.body.payment_options, "mobilemoneytanzania");
         assert.equal(options.body.customer.phone_number, "+255761932342");
+        assert.equal(options.body.customer.phonenumber, undefined);
+        assert.deepEqual(options.body.configuration, { session_duration: 30, max_retry_attempt: 3 });
         return { link: "https://checkout.flutterwave.com/v3/hosted/pay/sandbox-link" };
     };
     const key = "123e4567-e89b-42d3-a456-426614174000";
@@ -149,6 +154,55 @@ test("creates only a hosted checkout and reuses it for a duplicate idempotency k
     assert.equal(second.status, 200);
     assert.equal(secondBody.tx_ref, firstBody.tx_ref);
     assert.equal(providerRequests, 1);
+});
+
+test("logs safe Flutterwave rejection details and returns a diagnostic gateway code", async () => {
+    const store = new MemoryStore();
+    const logs = [];
+    let submittedBody;
+    const response = await createPayment(createRequest(validPayment), {
+        env,
+        store,
+        logger: (entry) => logs.push(entry),
+        fetcher: async (endpoint, options) => {
+            assert.equal(endpoint, "https://api.flutterwave.com/v3/payments");
+            assert.equal(options.method, "POST");
+            submittedBody = JSON.parse(options.body);
+            return new Response(JSON.stringify({
+                status: "error",
+                message: `Rejected ${validPayment.email} ${validPayment.phone} Authorization: Bearer ${env.FLW_SECRET_KEY} ${env.FLW_SECRET_HASH}`,
+                code: "validation_error",
+                error: "invalid_customer"
+            }), { status: 400, headers: { "Content-Type": "application/json" } });
+        }
+    });
+
+    const responseBody = await response.json();
+    assert.equal(response.status, 502);
+    assert.equal(responseBody.error.code, "gateway_rejected");
+    assert.equal(submittedBody.customer.phone_number, "+255761932342");
+    assert.equal(submittedBody.customer.email, validPayment.email);
+    assert.equal(submittedBody.currency, "TZS");
+    assert.equal(submittedBody.payment_options, "mobilemoneytanzania");
+    assert.equal(logs.length, 1);
+
+    const diagnostic = JSON.parse(logs[0]);
+    assert.equal(diagnostic.endpoint, "https://api.flutterwave.com/v3/payments");
+    assert.equal(diagnostic.transactionReference, submittedBody.tx_ref);
+    assert.equal(diagnostic.httpStatus, 400);
+    assert.equal(diagnostic.providerError, "invalid_customer");
+    assert.equal(diagnostic.providerCode, "validation_error");
+    assert.equal(diagnostic.internalErrorName, "FlutterwaveRequestError");
+    assert.equal(diagnostic.timeout, false);
+    assert.equal(diagnostic.providerRejection, true);
+    assert.match(diagnostic.providerMessage, /\[redacted-email\]/);
+    assert.match(diagnostic.providerMessage, /\[redacted-phone\]/);
+    assert.doesNotMatch(logs[0], new RegExp(env.FLW_SECRET_KEY));
+    assert.doesNotMatch(logs[0], new RegExp(env.FLW_SECRET_HASH));
+    assert.doesNotMatch(logs[0], new RegExp(validPayment.email));
+    assert.doesNotMatch(logs[0], /\+255761932342/);
+    assert.doesNotMatch(logs[0], /Authorization:|Bearer\s/i);
+    assert.doesNotMatch(JSON.stringify(responseBody), /validation_error|invalid_customer|john@example\.com|\+255761932342/);
 });
 
 test("rejects a success-looking provider result when amount verification differs", async () => {
