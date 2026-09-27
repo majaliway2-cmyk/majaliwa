@@ -1569,6 +1569,25 @@ h3 {
     min-width: 0
 }
 
+.payment-unavailable {
+    padding: 32px;
+    background: var(--white);
+    color: var(--ink)
+}
+
+.payment-unavailable h3 {
+    margin: 0 0 10px;
+    color: var(--pine);
+    font-size: 21px
+}
+
+.payment-unavailable p {
+    margin: 0 0 22px;
+    color: #68776e;
+    font-size: 13px;
+    line-height: 1.7
+}
+
 .payment-form {
     padding: 31px 32px;
     background: var(--white);
@@ -2270,6 +2289,10 @@ h3 {
     }
 
     .payment-form {
+        padding: 24px 20px
+    }
+
+    .payment-unavailable {
         padding: 24px 20px
     }
 

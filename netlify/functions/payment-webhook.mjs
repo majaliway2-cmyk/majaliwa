@@ -1,11 +1,13 @@
 import {
     PaymentError,
+    PAYMENTS_ENABLED,
     fetchFlutterwave,
     getPaymentConfig,
     getTransactionId,
     jsonResponse,
     normalizeFlutterwaveStatus,
     paymentStore,
+    paymentUnavailableResponse,
     updatePayment,
     validTransactionReference,
     verifiedTransactionMatches,
@@ -13,6 +15,7 @@ import {
 } from "./_payments.mjs";
 
 export async function handlePaymentWebhook(request, dependencies = {}) {
+    if (!PAYMENTS_ENABLED) return paymentUnavailableResponse();
     try {
         if (request.method !== "POST") return jsonResponse({ error: { code: "method_not_allowed" } }, 405);
         const config = getPaymentConfig(dependencies.env || process.env);

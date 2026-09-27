@@ -1,5 +1,6 @@
 import {
     PaymentError,
+    PAYMENTS_ENABLED,
     corsHeaders,
     fetchFlutterwave,
     getPaymentConfig,
@@ -7,6 +8,7 @@ import {
     jsonResponse,
     normalizeFlutterwaveStatus,
     paymentStore,
+    paymentUnavailableResponse,
     publicPaymentResult,
     updatePayment,
     validTransactionReference,
@@ -20,6 +22,7 @@ function errorResponse(error, headers = {}) {
 }
 
 export async function getPaymentStatus(request, dependencies = {}) {
+    if (!PAYMENTS_ENABLED) return paymentUnavailableResponse();
     let headers = {};
     try {
         headers = corsHeaders(request, dependencies.env);

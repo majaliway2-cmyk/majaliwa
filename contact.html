@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#12372f">
     <meta name="description"
-        content="Contact Majaliwa Yahaya about a website project or review the secure payment setup for services.">
+        content="Contact Majaliwa Yahaya about a website project by phone, email, or the project inquiry form.">
     <title>Contact & Payment | Majaliwa Yahaya</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,12 +59,12 @@
                     form.</p>
                 <div class="contact-detail-list">
                     <div class="contact-detail"><span class="contact-detail-icon" aria-hidden="true">☎</span>
-                        <div><span class="detail-label" data-i18n="phoneWhatsapp">Phone / WhatsApp</span><a
-                                class="contact-value" href="tel:+255761932342">+255 761 932 342</a></div>
+                        <div><span class="detail-label" data-i18n="phoneWhatsapp">Phone</span><a class="contact-value"
+                                href="tel:0745652466">0745 652 466</a></div>
                     </div>
                     <div class="contact-detail"><span class="contact-detail-icon" aria-hidden="true">@</span>
                         <div><span class="detail-label" data-i18n="email">Email</span><a class="contact-value"
-                                href="mailto:adammajaliwa2004@gmail.com">adammajaliwa2004@gmail.com</a></div>
+                                href="mailto:majaliway2@gmail.com">majaliway2@gmail.com</a></div>
                     </div>
                     <div class="contact-detail"><span class="contact-detail-icon" aria-hidden="true">⌖</span>
                         <div><span class="detail-label" data-i18n="location">Location</span><strong
@@ -72,8 +72,7 @@
                     </div>
                 </div>
                 <div class="contact-actions">
-                    <a class="button button-lime" href="https://wa.me/255761932342" data-whatsapp-contact
-                        target="_blank" rel="noopener noreferrer" data-i18n="whatsappCta">Chat on WhatsApp <span
+                    <a class="button button-lime" href="tel:0745652466" data-i18n="callPhone">Call 0745 652 466 <span
                             aria-hidden="true">↗</span></a>
                     <a class="button button-outline"
                         href="https://www.google.com/maps/search/?api=1&amp;query=Vikunai%2C%20Dar%20es%20Salaam%2C%20Tanzania"
@@ -85,7 +84,9 @@
                         website to do.</p>
                 </div>
             </div>
-            <form class="form-panel" id="contact-form" novalidate aria-describedby="contact-form-note contact-status">
+            <form class="form-panel" id="contact-form" name="contact" action="https://formspree.io/f/mppwygbr"
+                method="POST" aria-describedby="contact-form-note contact-status">
+                <input type="hidden" name="_subject" value="New Website Service Request">
                 <div class="form-heading"><span class="form-step">01 / 02</span>
                     <h2 data-i18n="projectInquiry">Project inquiry</h2>
                     <p data-i18n="formIntro">A few details will help us understand what you need.</p>
@@ -97,10 +98,9 @@
                     <label class="field"><span data-i18n="emailAddress">Email Address</span><input name="email"
                             type="email" autocomplete="email" required data-i18n-placeholder="emailPlaceholder"
                             placeholder="you@example.com"></label>
-                    <label class="field"><span data-i18n="phoneWhatsapp">Phone / WhatsApp Number</span><input
-                            name="phone" type="tel" autocomplete="tel" inputmode="tel" required
-                            pattern="\+?[0-9 ]{7,16}" data-i18n-placeholder="phonePlaceholder"
-                            placeholder="Your phone number"></label>
+                    <label class="field"><span data-i18n="phoneNumber">Phone Number</span><input name="phone" type="tel"
+                            autocomplete="tel" inputmode="tel" required maxlength="18"
+                            data-i18n-placeholder="phonePlaceholder" placeholder="0712 345 678"></label>
                     <label class="field"><span data-i18n="selectService">Select Service</span><select name="service"
                             id="inquiry-service" required>
                             <option value="" data-i18n="chooseService">Choose a service</option>
@@ -124,19 +124,21 @@
                     </label>
                     <label class="field"><span data-i18n="estimatedBudget">Estimated Budget</span><select name="budget"
                             required>
-                            <option value="" data-i18n="chooseBudget">Choose a budget range</option>
-                            <option value="under-300000" data-i18n="budgetUnder">Under TZS 300,000</option>
-                            <option value="300000-500000" data-i18n="budget300To500">TZS 300,000 – 500,000</option>
-                            <option value="500000-1000000" data-i18n="budget500To1000">TZS 500,000 – 1,000,000</option>
-                            <option value="over-1000000" data-i18n="budgetOver">Above TZS 1,000,000</option>
-                            <option value="unsure" data-i18n="budgetUnsure">I'm not sure yet</option>
+                            <option value="" data-i18n="chooseBudget" disabled selected>Choose a budget range</option>
+                            <option value="50000-100000" data-i18n="budget50000To100000">TZS 50,000 - 100,000</option>
+                            <option value="100000-150000" data-i18n="budget100000To150000">TZS 100,000 - 150,000
+                            </option>
+                            <option value="150000-200000" data-i18n="budget150000To200000">TZS 150,000 - 200,000
+                            </option>
+                            <option value="250000-300000" data-i18n="budget250000To300000">TZS 250,000 - 300,000
+                            </option>
                         </select></label>
                     <label class="field field-full"><span data-i18n="message">Message</span><textarea name="message"
                             rows="4" maxlength="2000" required data-i18n-placeholder="messagePlaceholder"
                             placeholder="What would you like your website to do?"></textarea></label>
                 </div>
-                <p class="form-note" id="contact-form-note" data-i18n="contactFormNote">Submit opens a pre-addressed
-                    email draft. Review and send it from your email app to complete your inquiry.</p>
+                <p class="form-note" id="contact-form-note" data-i18n="contactFormNote">Submit securely sends your
+                    project request to majaliway2@gmail.com.</p>
                 <button class="button button-dark form-submit" type="submit" data-i18n="submitRequest">Submit Request
                     <span aria-hidden="true">↗</span></button>
                 <p class="form-status" id="contact-status" role="status" aria-live="polite"></p>
@@ -146,106 +148,26 @@
         <section class="payment-section section-pad" id="payment">
             <div class="payment-intro">
                 <p class="eyebrow eyebrow-light"><span class="eyebrow-line"></span><span
-                        data-i18n="paymentKicker">SIMPLE, TRANSPARENT CHECKOUT</span></p>
-                <h2 data-i18n="paymentTitle">Make a Payment</h2>
-                <p data-i18n="paymentIntro">Choose mobile money or card, then complete payment on Flutterwave's secure
-                    hosted checkout.</p>
+                        data-i18n="paymentKicker">PAYMENT STATUS</span></p>
+                <h2 data-i18n="paymentTitle">Online payments unavailable</h2>
+                <p data-i18n="paymentIntro">Online checkout is not configured for this website. No payment can be
+                    started here; contact me to discuss payment arrangements.</p>
                 <div class="payment-security"><span class="lock-icon" aria-hidden="true">◇</span>
-                    <p data-i18n="paymentSecurity">Never enter your mobile money PIN, card PIN, password, or other
-                        sensitive credentials on this website. Complete payment only through the official provider.</p>
+                    <p data-i18n="paymentSecurity">This page does not collect or process payments. Never share your
+                        mobile money PIN, card PIN, password, or other sensitive credentials.</p>
                 </div>
-                <p class="payment-method-note" data-i18n="mobileMoneyNote">Flutterwave displays only Tanzania payment
-                    networks and methods enabled for your merchant account.</p>
+                <p class="payment-method-note" data-i18n="mobileMoneyNote">Flutterwave checkout will only be enabled
+                    after its server-side credentials and payment verification are configured.</p>
             </div>
             <div class="payment-form-wrap">
-                <form class="payment-form" id="payment-form">
-                    <div class="form-heading"><span class="form-step">02 / 02</span>
-                        <h2 data-i18n="paymentDetails">Payment details</h2>
-                        <p data-i18n="paymentFormIntro">Enter your details to review your request.</p>
-                    </div>
-                    <label class="field"><span data-i18n="selectService">Select Service</span><select name="service"
-                            id="payment-service" required>
-                            <option value="" data-i18n="chooseService">Choose a service</option>
-                            <option value="business" data-i18n="businessWebsiteOption">Business Website</option>
-                            <option value="personal" data-i18n="personalWebsiteOption">Personal Website</option>
-                            <option value="company" data-i18n="companyWebsiteOption">Company Website</option>
-                        </select></label>
-                    <label class="field"><span data-i18n="paymentMethod">Payment Method</span><select
-                            name="paymentMethod" id="payment-method" required>
-                            <option value="" data-i18n="choosePaymentMethod">Choose a payment method</option>
-                            <option value="mobile_money" data-i18n="methodMobileMoney">Mobile money (Tanzania)</option>
-                            <option value="card" data-i18n="methodCard">Card (if supported by provider)</option>
-                        </select></label>
-                    <label class="field"><span data-i18n="amountTzs">Amount (TZS)</span><input name="amount"
-                            type="number" min="1" step="1" inputmode="numeric" required
-                            data-i18n-placeholder="amountPlaceholder" placeholder="Enter amount"></label>
-                    <div class="form-grid"><label class="field"><span data-i18n="fullName">Full Name</span><input
-                                name="name" type="text" autocomplete="name" required
-                                data-i18n-placeholder="namePlaceholder" placeholder="Your name"></label><label
-                            class="field"><span data-i18n="phoneNumber">Phone Number</span><input name="phone"
-                                type="tel" autocomplete="tel" inputmode="tel" required pattern="\+?[0-9 ]{7,16}"
-                                data-i18n-placeholder="phonePlaceholder" placeholder="Your phone number"></label></div>
-                    <label class="field"><span data-i18n="emailAddress">Email Address</span><input name="email"
-                            type="email" autocomplete="email" required data-i18n-placeholder="emailPlaceholder"
-                            placeholder="you@example.com"></label>
-                    <div class="payment-review" aria-live="polite">
-                        <div class="review-heading"><span data-i18n="reviewPayment">Review your payment</span><span
-                                class="review-check" aria-hidden="true">✓</span></div>
-                        <div><span data-i18n="reviewService">Service</span><strong id="review-service"
-                                data-i18n="notSelected">Not selected</strong></div>
-                        <div><span data-i18n="reviewAmount">Amount</span><strong id="review-amount">TZS 0</strong></div>
-                        <div><span data-i18n="reviewName">Name</span><strong id="review-name" data-i18n="notEntered">Not
-                                entered</strong></div>
-                        <div><span data-i18n="phoneNumber">Phone</span><strong id="review-phone"
-                                data-i18n="notEntered">Not entered</strong></div>
-                        <div><span data-i18n="emailAddress">Email</span><strong id="review-email"
-                                data-i18n="notEntered">Not entered</strong></div>
-                        <div><span data-i18n="paymentMethod">Payment method</span><strong id="review-method"
-                                data-i18n="notSelected">Not selected</strong></div>
-                    </div><button class="button button-lime payment-submit" type="submit" data-i18n="payNow">Pay Now
-                        <span aria-hidden="true">↗</span></button>
-                    <p class="form-status payment-status" id="payment-status" role="status" aria-live="polite"></p>
-                    <p class="privacy-note" data-i18n="paymentPrivacy">Card numbers, mobile money PINs, and passwords
-                        are never requested here.</p>
-                </form>
-                <section class="payment-confirmation" id="payment-confirmation" aria-live="polite" hidden>
-                    <div class="confirmation-icon" aria-hidden="true">✓</div>
-                    <div class="confirmation-copy">
-                        <p class="confirmation-eyebrow" data-i18n="paymentStatusSuccessful">Payment successful</p>
-                        <h3 data-i18n="paymentConfirmationTitle">Your payment is confirmed.</h3>
-                        <p data-i18n="paymentConfirmationText">Thank you. Keep this reference for your records.</p>
-                        <dl class="confirmation-details">
-                            <div>
-                                <dt data-i18n="customerName">Customer name</dt>
-                                <dd id="confirmation-name"></dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="reviewService">Service</dt>
-                                <dd id="confirmation-service"></dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="reviewAmount">Amount</dt>
-                                <dd id="confirmation-amount"></dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="transactionReference">Transaction/reference number</dt>
-                                <dd id="confirmation-reference"></dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="paymentMethod">Payment method</dt>
-                                <dd id="confirmation-method"></dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="paymentStatusLabel">Payment status</dt>
-                                <dd id="confirmation-status"></dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="paymentDate">Date and time</dt>
-                                <dd id="confirmation-date"></dd>
-                            </div>
-                        </dl>
-                    </div>
-                </section>
+                <div class="payment-unavailable">
+                    <h3 data-i18n="paymentUnavailableTitle">Online checkout is unavailable</h3>
+                    <p data-i18n="paymentUnavailableText">The Flutterwave server credentials and verification setup
+                        are not configured, so no payment has been started.</p>
+                    <a class="button button-lime" href="mailto:majaliway2@gmail.com"
+                        data-i18n="paymentContactCta">Discuss payment
+                        arrangements <span aria-hidden="true">↗</span></a>
+                </div>
             </div>
         </section>
     </main>
@@ -261,9 +183,8 @@
                     data-i18n="navAbout">About</a><a href="contact.html" data-i18n="navContact">Contact</a>
             </div>
             <div class="footer-column">
-                <h2 data-i18n="footerConnect">Get in touch</h2><a href="https://wa.me/255761932342"
-                    data-whatsapp-contact target="_blank" rel="noopener noreferrer" data-i18n="whatsapp">WhatsApp</a><a
-                    href="mailto:adammajaliwa2004@gmail.com" data-i18n="email">Email</a><a href="#payment"
+                <h2 data-i18n="footerConnect">Get in touch</h2><a href="tel:0745652466">0745 652 466</a><a
+                    href="mailto:majaliway2@gmail.com">majaliway2@gmail.com</a><a href="#payment"
                     data-i18n="payment">Payment</a>
             </div>
             <div class="footer-cta">

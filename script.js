@@ -29,8 +29,6 @@ const translations = {
 
 Object.assign(translations.en, {
     contactLocation: "Vikunai, Dar es Salaam, Tanzania",
-    whatsappCta: "Chat on WhatsApp",
-    whatsappMessage: "Hello Majaliwa Yahaya, I would like to know more about your website services.",
     viewLocation: "View Location",
     businessWebsiteOption: "Business Website",
     personalWebsiteOption: "Personal Website",
@@ -44,15 +42,21 @@ Object.assign(translations.en, {
     businessTypeHotel: "Hotel",
     businessTypeRealEstate: "Real Estate",
     businessTypeOther: "Other Business",
-    estimatedBudget: "Estimated Budget",
+    phoneWhatsapp: "Phone",
+    callPhone: "Call 0745 652 466",
+    estimatedBudget: "Estimated project budget (TZS)",
     chooseBudget: "Choose a budget range",
-    budgetUnder: "Under TZS 300,000",
-    budget300To500: "TZS 300,000 – 500,000",
-    budget500To1000: "TZS 500,000 – 1,000,000",
-    budgetOver: "Above TZS 1,000,000",
-    budgetUnsure: "I'm not sure yet",
-    contactFormNote: "Submit opens a pre-addressed email draft. Review and send it from your email app to complete your inquiry.",
-    emailDraftOpening: "Your email app should open with your inquiry. Review and send the draft to complete your request.",
+    budget50000To100000: "TZS 50,000 - 100,000",
+    budget100000To150000: "TZS 100,000 - 150,000",
+    budget150000To200000: "TZS 150,000 - 200,000",
+    budget250000To300000: "TZS 250,000 - 300,000",
+    contactFormNote: "Submit securely sends your project request to majaliway2@gmail.com.",
+    contactSending: "Sending your request...",
+    contactSent: "Thank you! Your request has been sent successfully. We will contact you soon.",
+    contactSendError: "Sorry, your request could not be sent. Please try again later.",
+    contactValidationError: "Please complete all required fields and correct any invalid details.",
+    phonePlaceholder: "0712 345 678",
+    contactPhoneInvalid: "Enter a valid Tanzanian number, such as 0712 345 678 or +255 712 345 678.",
     validationRequired: "Please complete this field.",
     validationEmail: "Enter a valid email address.",
     validationPhone: "Enter a valid phone number.",
@@ -74,8 +78,14 @@ Object.assign(translations.en, {
     paymentStartError: "Secure checkout could not be started. No payment was made. Please try again or contact us.",
     paymentVerificationUnavailable: "We couldn't verify this payment. No success is being reported. Please contact us before trying again.",
     paymentNotConfigured: "Online checkout is not configured yet. No payment was started. Please contact us to arrange your project.",
-    paymentIntro: "Choose mobile money or card, then complete payment on Flutterwave's secure hosted checkout.",
-    mobileMoneyNote: "Flutterwave displays only Tanzania payment networks and methods enabled for your merchant account.",
+    paymentKicker: "PAYMENT STATUS",
+    paymentTitle: "Online payments disabled",
+    paymentIntro: "Online payments are disabled. No payment can be started or completed on this website. Contact me to discuss arrangements.",
+    paymentSecurity: "This page does not collect or process payments. Never share your mobile money PIN, card PIN, password, or other sensitive credentials.",
+    mobileMoneyNote: "Online checkout will remain disabled until it has been properly configured and tested.",
+    paymentUnavailableTitle: "Online payments are disabled",
+    paymentUnavailableText: "No online payment method is available on this website. No payment has been started.",
+    paymentContactCta: "Discuss payment arrangements",
     paymentStatusProcessing: "Payment processing. The provider is still checking the transaction.",
     paymentStatusUnknown: "We can't confirm this transaction yet. Please wait and check again before starting another payment.",
     paymentDate: "Date and time",
@@ -96,8 +106,6 @@ Object.assign(translations.en, {
 
 Object.assign(translations.sw, {
     contactLocation: "Vikunai, Dar es Salaam, Tanzania",
-    whatsappCta: "Wasiliana nasi WhatsApp",
-    whatsappMessage: "Habari Majaliwa Yahaya, ningependa kujua zaidi kuhusu huduma zako za tovuti.",
     viewLocation: "Tazama Mahali",
     businessWebsiteOption: "Tovuti ya Biashara",
     personalWebsiteOption: "Tovuti Binafsi",
@@ -111,15 +119,21 @@ Object.assign(translations.sw, {
     businessTypeHotel: "Hoteli",
     businessTypeRealEstate: "Majengo",
     businessTypeOther: "Biashara Nyingine",
-    estimatedBudget: "Bajeti Inayokadiriwa",
+    phoneWhatsapp: "Namba ya simu",
+    callPhone: "Piga simu 0745 652 466",
+    estimatedBudget: "Bajeti ya mradi inayokadiriwa (TZS)",
     chooseBudget: "Chagua kiwango cha bajeti",
-    budgetUnder: "Chini ya TZS 300,000",
-    budget300To500: "TZS 300,000 – 500,000",
-    budget500To1000: "TZS 500,000 – 1,000,000",
-    budgetOver: "Zaidi ya TZS 1,000,000",
-    budgetUnsure: "Bado sina uhakika",
-    contactFormNote: "Kutuma ombi kutafungua rasimu ya barua pepe yenye anwani yetu. Ikague na uitume kupitia programu yako ya barua pepe.",
-    emailDraftOpening: "Programu yako ya barua pepe inapaswa kufunguka na ombi lako. Ikague na uitume ili kukamilisha ombi.",
+    budget50000To100000: "TZS 50,000 - 100,000",
+    budget100000To150000: "TZS 100,000 - 150,000",
+    budget150000To200000: "TZS 150,000 - 200,000",
+    budget250000To300000: "TZS 250,000 - 300,000",
+    contactFormNote: "Kutuma ombi kunalituma kwa usalama kwa majaliway2@gmail.com.",
+    contactSending: "Ombi lako linatumwa...",
+    contactSent: "Asante! Ombi lako limetumwa kikamilifu. Tutawasiliana nawe hivi karibuni.",
+    contactSendError: "Samahani, ombi lako halikuweza kutumwa. Tafadhali jaribu tena baadaye.",
+    contactValidationError: "Jaza sehemu zote zinazohitajika na sahihisha taarifa zisizo sahihi.",
+    phonePlaceholder: "0712 345 678",
+    contactPhoneInvalid: "Weka namba sahihi ya Tanzania, kwa mfano 0712 345 678 au +255 712 345 678.",
     validationRequired: "Tafadhali jaza sehemu hii.",
     validationEmail: "Weka anwani sahihi ya barua pepe.",
     validationPhone: "Weka namba sahihi ya simu.",
@@ -141,8 +155,14 @@ Object.assign(translations.sw, {
     paymentStartError: "Imeshindikana kuanzisha malipo salama. Hakuna malipo yaliyofanyika. Jaribu tena au wasiliana nasi.",
     paymentVerificationUnavailable: "Imeshindikana kuthibitisha malipo haya. Hatutaarifu kuwa yamefanikiwa. Tafadhali wasiliana nasi kabla ya kujaribu tena.",
     paymentNotConfigured: "Malipo ya mtandaoni bado hayajawekwa. Hakuna malipo yaliyoanzishwa. Tafadhali wasiliana nasi kupanga mradi wako.",
-    paymentIntro: "Chagua pesa kwa simu au kadi, kisha kamilisha malipo kupitia mfumo salama wa Flutterwave.",
-    mobileMoneyNote: "Flutterwave huonyesha mitandao na njia za malipo za Tanzania zilizoidhinishwa kwenye akaunti yako ya mfanyabiashara.",
+    paymentKicker: "HALI YA MALIPO",
+    paymentTitle: "Malipo ya mtandaoni yamezimwa",
+    paymentIntro: "Malipo ya mtandaoni yamezimwa. Hakuna malipo yanayoweza kuanzishwa au kukamilishwa kwenye tovuti hii. Wasiliana nami kujadili mipango.",
+    paymentSecurity: "Ukurasa huu haukusanyi wala kuchakata malipo. Usishiriki PIN ya pesa kwa simu, PIN ya kadi, nywila au taarifa nyingine nyeti.",
+    mobileMoneyNote: "Malipo ya mtandaoni yataendelea kuzimwa hadi yatakapowekwa na kujaribiwa ipasavyo.",
+    paymentUnavailableTitle: "Malipo ya mtandaoni yamezimwa",
+    paymentUnavailableText: "Hakuna njia ya malipo ya mtandaoni inayopatikana kwenye tovuti hii. Hakuna malipo yaliyoanzishwa.",
+    paymentContactCta: "Jadili njia za malipo",
     paymentStatusProcessing: "Malipo yanachakatwa. Mtoa huduma bado anakagua muamala.",
     paymentStatusUnknown: "Bado hatuwezi kuthibitisha muamala huu. Subiri na ukague tena kabla ya kuanzisha malipo mengine.",
     paymentDate: "Tarehe na saa",
@@ -161,8 +181,16 @@ Object.assign(translations.sw, {
     paymentRequestFailed: "Imeshindikana kuanzisha malipo. Hakuna malipo yaliyothibitishwa. Jaribu tena au wasiliana nasi."
 });
 
-const PAYMENT_API_BASE_URL = "/api";
-const CONTACT_EMAIL = "adammajaliwa2004@gmail.com";
+function normalizeTanzanianPhone(value) {
+    if (typeof value !== "string") return null;
+    const compact = value.trim().replace(/[\s()-]/g, "");
+    if (/^0[1-9]\d{8}$/.test(compact)) return `+255${compact.slice(1)}`;
+    if (/^255[1-9]\d{8}$/.test(compact)) return `+${compact}`;
+    if (/^\+255[1-9]\d{8}$/.test(compact)) return compact;
+    return null;
+}
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mppwygbr";
 
 function setLanguage(language) {
     const selected = translations[language] ? language : "en";
@@ -185,11 +213,6 @@ function setLanguage(language) {
         element.classList.toggle("is-selected", active);
         if (active) element.setAttribute("aria-current", "true");
         else element.removeAttribute("aria-current");
-    });
-    document.querySelectorAll("[data-whatsapp-contact]").forEach((element) => {
-        const url = new URL("https://wa.me/255761932342");
-        url.searchParams.set("text", translations[selected].whatsappMessage);
-        element.href = url.href;
     });
     document.dispatchEvent(new Event("site-language-change"));
 }
@@ -226,7 +249,7 @@ function setupLocalizedValidation(form) {
         const copy = translations[document.documentElement.lang];
         let message = copy.validationRequired;
         if (field.validity.typeMismatch && field.type === "email") message = copy.validationEmail;
-        else if (field.validity.patternMismatch && field.name === "phone") message = copy.validationPhone;
+        else if (field.name === "phone" && (field.validity.patternMismatch || field.validity.customError)) message = copy.contactPhoneInvalid || copy.validationPhone;
         else if ((field.validity.rangeUnderflow || field.validity.badInput) && field.name === "amount") message = copy.validationAmount;
         field.setCustomValidity(message);
     }, true);
@@ -239,6 +262,7 @@ function initializeContactForm() {
     const status = document.querySelector("#contact-status");
     if (!form || !status) return;
     const serviceSelect = form.elements.service;
+    const phoneInput = form.elements.phone;
     const businessTypeField = document.querySelector("#business-type-field");
     const businessTypeSelect = form.elements.businessType;
     setupLocalizedValidation(form);
@@ -253,25 +277,51 @@ function initializeContactForm() {
     serviceSelect.addEventListener("change", updateBusinessType);
     updateBusinessType();
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
         event.preventDefault();
-        if (!form.reportValidity()) return;
         const copy = translations[document.documentElement.lang];
-        const values = Object.fromEntries(new FormData(form));
-        const selectedText = (field) => field.options[field.selectedIndex]?.text || "";
-        const rows = [
-            [copy.fullName, values.name],
-            [copy.emailAddress, values.email],
-            [copy.phoneWhatsapp, values.phone],
-            [copy.selectService, selectedText(serviceSelect)],
-            ...(values.businessType ? [[copy.businessType, selectedText(businessTypeSelect)]] : []),
-            [copy.estimatedBudget, selectedText(form.elements.budget)],
-            [copy.message, values.message]
-        ];
-        const subject = encodeURIComponent(`${copy.projectInquiry} - Majaliwa Yahaya`);
-        const body = encodeURIComponent(rows.map(([label, value]) => `${label}:\n${value}`).join("\n\n"));
-        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-        status.textContent = copy.emailDraftOpening;
+        status.classList.remove("is-error", "is-success", "is-pending");
+        status.textContent = "";
+        const normalizedPhone = normalizeTanzanianPhone(phoneInput.value);
+        phoneInput.setCustomValidity(phoneInput.value.trim() && !normalizedPhone ? copy.contactPhoneInvalid : "");
+        if (!form.reportValidity()) {
+            status.textContent = copy.contactValidationError;
+            status.classList.add("is-error");
+            return;
+        }
+        const formData = new FormData(form);
+        formData.set("phone", normalizedPhone);
+        const submitButton = form.querySelector("[type=submit]");
+        status.classList.add("is-pending");
+        status.textContent = copy.contactSending;
+        submitButton.disabled = true;
+
+        try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                headers: { Accept: "application/json" },
+                body: formData
+            });
+            if (!response.ok) {
+                const result = await response.json().catch(() => ({}));
+                status.textContent = result.errors?.[0]?.message || copy.contactSendError;
+                status.classList.remove("is-pending");
+                status.classList.add("is-error");
+                return;
+            }
+
+            status.textContent = copy.contactSent;
+            status.classList.remove("is-pending");
+            status.classList.add("is-success");
+            form.reset();
+            updateBusinessType();
+        } catch {
+            status.textContent = copy.contactSendError;
+            status.classList.remove("is-pending");
+            status.classList.add("is-error");
+        } finally {
+            submitButton.disabled = false;
+        }
     });
 }
 

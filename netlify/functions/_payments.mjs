@@ -8,6 +8,7 @@ const TX_REF_PATTERN = /^MY-[0-9a-f-]{36}$/i;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^\+255[1-9]\d{8}$/;
 const MAX_BODY_SIZE = 16_384;
+export const PAYMENTS_ENABLED = false;
 
 export class PaymentError extends Error {
     constructor(code, status = 400) {
@@ -248,4 +249,8 @@ export function getTransactionId(value) {
 
 export function validTransactionReference(value) {
     return typeof value === "string" && TX_REF_PATTERN.test(value);
+}
+
+export function paymentUnavailableResponse() {
+    return jsonResponse({ error: { code: "payment_unavailable" } }, 503);
 }

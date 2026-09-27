@@ -1,5 +1,6 @@
 import {
     PaymentError,
+    PAYMENTS_ENABLED,
     corsHeaders,
     createIdempotencyKey,
     createTransactionReference,
@@ -7,6 +8,7 @@ import {
     getPaymentConfig,
     jsonResponse,
     paymentStore,
+    paymentUnavailableResponse,
     readJsonBody,
     updatePayment,
     validatePaymentInput
@@ -55,6 +57,7 @@ function logGatewayFailure(error, txRef, config, order, logger) {
 }
 
 export async function createPayment(request, dependencies = {}) {
+    if (!PAYMENTS_ENABLED) return paymentUnavailableResponse();
     let headers = {};
     try {
         headers = corsHeaders(request, dependencies.env);
