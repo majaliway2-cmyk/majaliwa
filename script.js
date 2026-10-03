@@ -234,7 +234,15 @@ Object.assign(translations.en, {
     personalServiceDescription: "I create modern personal websites to help you present your profile, portfolio, or personal brand clearly online.",
     companyServiceDescription: "I build professional company websites that explain your organization, services, team, and projects clearly.",
     contactAside: "Have a rough idea? That is enough to start. Tell me what you want your website to do.",
-    footerDescription: "I create modern websites for businesses, companies, and individuals."
+    footerDescription: "I create modern websites for businesses, companies, and individuals.",
+    portfolioKicker: "A RECENT CONCEPT",
+    portfolioTitle: "Featured Work",
+    portfolioIntro: "A sample project demonstrating how thoughtful design can support a real business.",
+    portfolioCategory: "HOSPITALITY · PRIVATE EVENTS",
+    portfolioProjectTitle: "Majaliwa Restaurant",
+    portfolioProjectDescription: "An elegant restaurant and private-events website concept, with event packages, a gallery, and a demo inquiry form.",
+    portfolioViewProject: "View Project",
+    portfolioDemoNote: "Concept website · Portfolio demo"
 });
 
 Object.assign(translations.sw, {
@@ -290,7 +298,15 @@ Object.assign(translations.sw, {
     personalServiceDescription: "Ninatengeneza tovuti binafsi za kisasa zitakazokusaidia kuwasilisha wasifu, kazi au chapa yako mtandaoni.",
     companyServiceDescription: "Ninatengeneza tovuti za kampuni zinazoeleza shirika, huduma, timu na miradi yako kwa uwazi.",
     contactAside: "Hata kama una wazo la awali tu, tunaweza kuanza. Niambie unataka tovuti yako ifanye nini.",
-    footerDescription: "Ninatengeneza tovuti za kisasa kwa biashara, kampuni na watu binafsi."
+    footerDescription: "Ninatengeneza tovuti za kisasa kwa biashara, kampuni na watu binafsi.",
+    portfolioKicker: "MRADI WA MFANO",
+    portfolioTitle: "Kazi Zangu",
+    portfolioIntro: "Mfano wa mradi unaoonyesha jinsi muundo makini unavyoweza kusaidia biashara.",
+    portfolioCategory: "UKARIMU · MATUKIO BINAFSI",
+    portfolioProjectTitle: "Majaliwa Restaurant",
+    portfolioProjectDescription: "Mfano wa tovuti maridadi ya mgahawa na matukio binafsi, yenye vifurushi, picha na fomu ya maulizo ya majaribio.",
+    portfolioViewProject: "Tazama Mradi",
+    portfolioDemoNote: "Tovuti ya mfano · Kwa jalada la kazi"
 });
 
 function normalizeTanzanianPhone(value) {

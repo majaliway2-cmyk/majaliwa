@@ -1,6 +1,8 @@
 # Majaliwa Yahaya Website
 
-Four static pages: Home (`index.html`), Services, About, and Contact. The site uses relative asset paths and can be deployed to Netlify or GitHub Pages without a build step.
+Static pages: Home (`index.html`), Services, About, and Contact. The home page includes a featured restaurant portfolio demo at `/projects/restaurant-demo/`. The site can be deployed to Netlify without a build step; Netlify publishes the repository root.
+
+The restaurant page is a portfolio concept. Its sample event details and testimonials are illustrative, and its inquiry form does not send or store information.
 
 ## Contact inquiries
 
