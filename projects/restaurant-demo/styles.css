@@ -36,6 +36,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .nav-cta { padding: 11px 17px; border: 1px solid rgba(255,255,255,.72); transition: color .2s, background .2s }
 .nav-cta:hover { color: var(--ink); background: white }
 .nav-cta span { padding-left: 12px }
+.language-switch { display: inline-flex; flex: none; align-items: center; gap: 7px; color: rgba(255,255,255,.72); font-size: 10px; letter-spacing: .08em }
+.language-switch button { padding: 8px 2px; border: 0; color: inherit; background: transparent; cursor: pointer; font: inherit; transition: color .2s }
+.language-switch button:hover, .language-switch button[aria-pressed="true"] { color: white }
+.language-switch button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 4px }
+.language-switch button:focus-visible { outline: 2px solid #e9d7c3; outline-offset: 2px }
 .menu-toggle { display: none }
 
 .hero { min-height: min(790px, 100svh); min-height: max(690px, min(790px, 100svh)); position: relative; display: flex; align-items: center; color: white; background: #332720; overflow: hidden }
@@ -178,6 +183,7 @@ h1 em, h2 em { font-weight: 400 }
 .inquiry-form textarea { min-height: 92px; resize: vertical }
 .form-submit { margin-top: 2px }
 .form-response { min-height: 20px; margin: 13px 0 0; color: #446447; font-size: 11px }
+.form-response.is-error { color: #9b3327 }
 .site-footer { padding: 38px max(48px, calc((100% - var(--content)) / 2)) 17px; color: white; background: #201b18 }
 .footer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 31px }
 .footer-brand .brand-mark { border-color: rgba(255,255,255,.48) }
@@ -222,6 +228,7 @@ h1 em, h2 em { font-weight: 400 }
     .brand-mark { width: 34px; height: 34px; font-size: 22px }
     .brand-copy { font-size: 10px }
     .brand-copy small { font-size: 7px }
+    .language-switch { margin-left: auto; margin-right: 13px }
     .menu-toggle { width: 42px; height: 42px; display: grid; align-content: center; gap: 6px; justify-items: center; border: 1px solid rgba(255,255,255,.6); color: white; background: transparent; cursor: pointer }
     .menu-toggle span:not(.visually-hidden) { width: 17px; height: 1px; background: currentColor; transition: transform .2s }
     .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg) }

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#201b18">
-    <meta name="description" content="Celebrate life's memorable moments at Majaliwa Restaurant in Dar es Salaam. Explore intimate private events, thoughtful menus and elegant dining experiences.">
+    <meta name="description" content="Celebrate life's memorable moments at Majaliwa Restaurant in Dar es Salaam. Explore intimate private events, thoughtful menus and elegant dining experiences." data-i18n-attr="content:pageDescription">
     <title>Private Events &amp; Dining | Majaliwa Restaurant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,202 +14,207 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main" data-i18n="skipLink">Skip to content</a>
     <header class="site-header">
         <div class="header-inner">
-            <a class="brand" href="#home" aria-label="Majaliwa Restaurant home">
+            <a class="brand" href="#home" aria-label="Majaliwa Restaurant home" data-i18n-aria="brandHome">
                 <span class="brand-mark" aria-hidden="true">M</span>
-                <span class="brand-copy"><span>MAJALIWA</span><small>RESTAURANT · DAR ES SALAAM</small></span>
+                <span class="brand-copy"><span>MAJALIWA</span><small data-i18n="brandLocation">RESTAURANT · DAR ES SALAAM</small></span>
             </a>
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
+            <div class="language-switch" role="group" aria-label="Choose language" data-i18n-aria="languageLabel">
+                <button type="button" data-language="en" aria-pressed="true" title="English" data-i18n-attr="title:englishLanguage">EN</button>
+                <span aria-hidden="true">|</span>
+                <button type="button" data-language="sw" aria-pressed="false" title="Kiswahili" data-i18n-attr="title:swahiliLanguage">SW</button>
+            </div>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation" data-i18n-aria="openNavigation">
                 <span></span><span></span>
             </button>
-            <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
-                <a href="#story">Our Story</a>
-                <a href="#events">Private Events</a>
-                <a href="#menus">Packages</a>
-                <a href="#gallery">Gallery</a>
-                <a class="nav-cta" href="#inquiry">Enquire <span aria-hidden="true">↗</span></a>
+            <nav class="primary-nav" id="primary-nav" aria-label="Main navigation" data-i18n-aria="mainNavigation">
+                <a href="#story" data-i18n="navStory">Our Story</a>
+                <a href="#events" data-i18n="navEvents">Private Events</a>
+                <a href="#menus" data-i18n="navPackages">Packages</a>
+                <a href="#gallery" data-i18n="navGallery">Gallery</a>
+                <a class="nav-cta" href="#inquiry"><span data-i18n="navEnquire">Enquire</span><span aria-hidden="true">↗</span></a>
             </nav>
         </div>
     </header>
 
     <main id="main">
         <section class="hero" id="home" aria-labelledby="hero-title">
-            <img class="hero-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=2200&amp;q=88" alt="Warmly lit restaurant dining room set for an intimate evening" fetchpriority="high">
+            <img class="hero-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=2200&amp;q=88" alt="Warmly lit restaurant dining room set for an intimate evening" data-i18n-attr="alt:heroImageAlt" fetchpriority="high">
             <div class="hero-shade"></div>
             <div class="hero-content">
-                <p class="eyebrow hero-eyebrow"><span></span> A TABLE FOR EVERY OCCASION</p>
-                <h1 id="hero-title">Celebrate<br>something <em>special.</em></h1>
-                <p class="hero-description">Make your next celebration unforgettable with an elegant dining experience, delicious food, and a beautiful atmosphere.</p>
+                <p class="eyebrow hero-eyebrow"><span></span><span data-i18n="heroEyebrow">A TABLE FOR EVERY OCCASION</span></p>
+                <h1 id="hero-title"><span data-i18n="heroTitleFirst">Celebrate</span><br><span data-i18n="heroTitleSecond">something</span> <em data-i18n="heroTitleEmphasis">special.</em></h1>
+                <p class="hero-description" data-i18n="heroDescription">Make your next celebration unforgettable with an elegant dining experience, delicious food, and a beautiful atmosphere.</p>
                 <div class="hero-actions">
-                    <a class="button button-light" href="#inquiry">Plan your event <span aria-hidden="true">↗</span></a>
-                    <a class="text-link light-link" href="#story">Explore our restaurant <span aria-hidden="true">↓</span></a>
+                    <a class="button button-light" href="#inquiry"><span data-i18n="heroPlanEvent">Plan your event</span><span aria-hidden="true">↗</span></a>
+                    <a class="text-link light-link" href="#story"><span data-i18n="heroExplore">Explore our restaurant</span><span aria-hidden="true">↓</span></a>
                 </div>
             </div>
-            <div class="hero-foot"><span>GOOD FOOD. GOOD COMPANY. GREAT MEMORIES.</span><a href="#story" aria-label="Scroll to our story">↓</a><span>DAR ES SALAAM, TZ</span></div>
+            <div class="hero-foot"><span data-i18n="heroFootline">GOOD FOOD. GOOD COMPANY. GREAT MEMORIES.</span><a href="#story" aria-label="Scroll to our story" data-i18n-aria="scrollStory">↓</a><span data-i18n="heroLocation">DAR ES SALAAM, TZ</span></div>
         </section>
 
         <section class="story section-wrap" id="story">
             <div class="story-image-wrap">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="An inviting restaurant interior with candlelit tables" loading="lazy">
-                <span class="image-note">A PLACE TO COME TOGETHER</span>
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="An inviting restaurant interior with candlelit tables" data-i18n-attr="alt:storyImageAlt" loading="lazy">
+                <span class="image-note" data-i18n="storyImageNote">A PLACE TO COME TOGETHER</span>
             </div>
             <div class="story-copy">
-                <p class="eyebrow"><span></span> THE MAJALIWA EXPERIENCE</p>
-                <h2 id="story-title">Made for the moments <em>that matter.</em></h2>
-                <p>Some occasions deserve more than a reservation. At Majaliwa, warm hospitality, beautifully prepared food and thoughtful details come together to make every gathering feel like your own.</p>
-                <p>Settle in for an intimate dinner, bring everyone together around a generous table, or let us help you celebrate something worth remembering.</p>
-                <a class="text-link dark-link" href="#events">Find your occasion <span aria-hidden="true">↗</span></a>
-                <div class="story-signoff"><span class="signoff-rule"></span><span>MAJALIWA RESTAURANT<br><small>HOSPITALITY, WITH HEART</small></span></div>
+                <p class="eyebrow"><span></span><span data-i18n="storyEyebrow">THE MAJALIWA EXPERIENCE</span></p>
+                <h2 id="story-title"><span data-i18n="storyTitle">Made for the moments</span> <em data-i18n="storyTitleEmphasis">that matter.</em></h2>
+                <p data-i18n="storyParagraphOne">Some occasions deserve more than a reservation. At Majaliwa, warm hospitality, beautifully prepared food and thoughtful details come together to make every gathering feel like your own.</p>
+                <p data-i18n="storyParagraphTwo">Settle in for an intimate dinner, bring everyone together around a generous table, or let us help you celebrate something worth remembering.</p>
+                <a class="text-link dark-link" href="#events"><span data-i18n="storyLink">Find your occasion</span><span aria-hidden="true">↗</span></a>
+                <div class="story-signoff"><span class="signoff-rule"></span><span>MAJALIWA RESTAURANT<br><small data-i18n="storySignoff">HOSPITALITY, WITH HEART</small></span></div>
             </div>
         </section>
 
         <section class="events section-pad" id="events">
             <div class="section-heading centered-heading">
-                <p class="eyebrow"><span></span> GATHER A LITTLE CLOSER <span></span></p>
-                <h2>Every reason to <em>celebrate.</em></h2>
-                <p>From a candlelit table for two to a room full of your favourite people, there's a place for it here.</p>
+                <p class="eyebrow"><span></span><span data-i18n="eventsEyebrow">GATHER A LITTLE CLOSER</span><span></span></p>
+                <h2><span data-i18n="eventsTitle">Every reason to</span> <em data-i18n="eventsTitleEmphasis">celebrate.</em></h2>
+                <p data-i18n="eventsDescription">From a candlelit table for two to a room full of your favourite people, there's a place for it here.</p>
             </div>
             <div class="event-grid">
-                <article class="event-card"><span class="card-number">01</span><span class="event-icon" aria-hidden="true">✳</span><h3>Birthday celebrations</h3><p>Raise a glass, share a beautiful meal and make their day feel entirely their own.</p><a href="#inquiry" aria-label="Enquire about birthday celebrations">↗</a></article>
-                <article class="event-card"><span class="card-number">02</span><span class="event-icon" aria-hidden="true">♡</span><h3>Weddings &amp; engagements</h3><p>Celebrate the beginning of something wonderful with your closest people around the table.</p><a href="#inquiry" aria-label="Enquire about weddings and engagements">↗</a></article>
-                <article class="event-card"><span class="card-number">03</span><span class="event-icon" aria-hidden="true">⌘</span><h3>Corporate events</h3><p>Bring your team together for a polished evening of good conversation and generous hospitality.</p><a href="#inquiry" aria-label="Enquire about corporate events">↗</a></article>
-                <article class="event-card"><span class="card-number">04</span><span class="event-icon" aria-hidden="true">◌</span><h3>Private dinners</h3><p>An intimate setting, considered menu and unhurried evening made just for your guests.</p><a href="#inquiry" aria-label="Enquire about private dinners">↗</a></article>
-                <article class="event-card"><span class="card-number">05</span><span class="event-icon" aria-hidden="true">⌂</span><h3>Family celebrations</h3><p>Make room for every generation with a welcoming table and something delicious for all.</p><a href="#inquiry" aria-label="Enquire about family celebrations">↗</a></article>
-                <article class="event-card"><span class="card-number">06</span><span class="event-icon" aria-hidden="true">✦</span><h3>Special occasions</h3><p>Anniversaries, reunions or simply being together—every milestone deserves a moment.</p><a href="#inquiry" aria-label="Enquire about special occasions">↗</a></article>
+                <article class="event-card"><span class="card-number">01</span><span class="event-icon" aria-hidden="true">✳</span><h3 data-i18n="eventBirthdayTitle">Birthday celebrations</h3><p data-i18n="eventBirthdayText">Raise a glass, share a beautiful meal and make their day feel entirely their own.</p><a href="#inquiry" aria-label="Enquire about birthday celebrations" data-i18n-aria="eventBirthdayAria">↗</a></article>
+                <article class="event-card"><span class="card-number">02</span><span class="event-icon" aria-hidden="true">♡</span><h3 data-i18n="eventWeddingTitle">Weddings &amp; engagements</h3><p data-i18n="eventWeddingText">Celebrate the beginning of something wonderful with your closest people around the table.</p><a href="#inquiry" aria-label="Enquire about weddings and engagements" data-i18n-aria="eventWeddingAria">↗</a></article>
+                <article class="event-card"><span class="card-number">03</span><span class="event-icon" aria-hidden="true">⌘</span><h3 data-i18n="eventCorporateTitle">Corporate events</h3><p data-i18n="eventCorporateText">Bring your team together for a polished evening of good conversation and generous hospitality.</p><a href="#inquiry" aria-label="Enquire about corporate events" data-i18n-aria="eventCorporateAria">↗</a></article>
+                <article class="event-card"><span class="card-number">04</span><span class="event-icon" aria-hidden="true">◌</span><h3 data-i18n="eventDinnerTitle">Private dinners</h3><p data-i18n="eventDinnerText">An intimate setting, considered menu and unhurried evening made just for your guests.</p><a href="#inquiry" aria-label="Enquire about private dinners" data-i18n-aria="eventDinnerAria">↗</a></article>
+                <article class="event-card"><span class="card-number">05</span><span class="event-icon" aria-hidden="true">⌂</span><h3 data-i18n="eventFamilyTitle">Family celebrations</h3><p data-i18n="eventFamilyText">Make room for every generation with a welcoming table and something delicious for all.</p><a href="#inquiry" aria-label="Enquire about family celebrations" data-i18n-aria="eventFamilyAria">↗</a></article>
+                <article class="event-card"><span class="card-number">06</span><span class="event-icon" aria-hidden="true">✦</span><h3 data-i18n="eventSpecialTitle">Special occasions</h3><p data-i18n="eventSpecialText">Anniversaries, reunions or simply being together—every milestone deserves a moment.</p><a href="#inquiry" aria-label="Enquire about special occasions" data-i18n-aria="eventSpecialAria">↗</a></article>
             </div>
         </section>
 
         <section class="packages section-pad" id="menus">
             <div class="packages-intro">
-                <p class="eyebrow eyebrow-light"><span></span> THOUGHTFULLY SET FOR YOU</p>
-                <h2>A gathering, <em>beautifully served.</em></h2>
-                <p>Choose a starting point for your celebration. We’ll shape the details around your guests, your tastes and the occasion.</p>
-                <p class="sample-notice"><span aria-hidden="true">ⓘ</span> DEMO CONTENT — sample package details and prices shown for portfolio purposes only.</p>
+                <p class="eyebrow eyebrow-light"><span></span><span data-i18n="packagesEyebrow">THOUGHTFULLY SET FOR YOU</span></p>
+                <h2><span data-i18n="packagesTitle">A gathering,</span> <em data-i18n="packagesTitleEmphasis">beautifully served.</em></h2>
+                <p data-i18n="packagesDescription">Choose a starting point for your celebration. We’ll shape the details around your guests, your tastes and the occasion.</p>
+                <p class="sample-notice"><span aria-hidden="true">ⓘ</span> <span data-i18n="packagesNotice">DEMO CONTENT — sample package details and prices shown for portfolio purposes only.</span></p>
             </div>
             <div class="package-grid">
                 <article class="package-card">
-                    <p class="package-tier">01 / THE ESSENTIALS</p><h3>Classic</h3>
-                    <p class="package-price">From <strong>TSh 85,000</strong> <span>/ guest</span></p>
-                    <p class="package-description">A lovely place to start for a relaxed celebration with all the important things taken care of.</p>
-                    <ul><li>Reserved dining space</li><li>Three-course set menu</li><li>Welcome non-alcoholic drink</li><li>Dedicated event host</li></ul>
-                    <a class="button button-outline-dark" href="#inquiry">Enquire about Classic <span aria-hidden="true">↗</span></a>
+                    <p class="package-tier"><span>01 / </span><span data-i18n="classicTier">THE ESSENTIALS</span></p><h3 data-i18n="classicName">Classic</h3>
+                    <p class="package-price"><span data-i18n="priceFrom">From</span> <strong>TSh 85,000</strong> <span data-i18n="perGuest">/ guest</span></p>
+                    <p class="package-description" data-i18n="classicDescription">A lovely place to start for a relaxed celebration with all the important things taken care of.</p>
+                    <ul><li data-i18n="classicFeatureOne">Reserved dining space</li><li data-i18n="classicFeatureTwo">Three-course set menu</li><li data-i18n="classicFeatureThree">Welcome non-alcoholic drink</li><li data-i18n="classicFeatureFour">Dedicated event host</li></ul>
+                    <a class="button button-outline-dark" href="#inquiry"><span data-i18n="classicEnquire">Enquire about Classic</span><span aria-hidden="true">↗</span></a>
                 </article>
                 <article class="package-card package-featured">
-                    <span class="popular-label">A LITTLE MORE</span>
-                    <p class="package-tier">02 / THE CELEBRATION</p><h3>Premium</h3>
-                    <p class="package-price">From <strong>TSh 135,000</strong> <span>/ guest</span></p>
-                    <p class="package-description">A considered menu and extra touches for an occasion you want to make more of.</p>
-                    <ul><li>Private dining room</li><li>Chef’s four-course menu</li><li>Welcome drink &amp; table styling</li><li>Personal event host</li></ul>
-                    <a class="button button-dark" href="#inquiry">Enquire about Premium <span aria-hidden="true">↗</span></a>
+                    <span class="popular-label" data-i18n="popularLabel">A LITTLE MORE</span>
+                    <p class="package-tier"><span>02 / </span><span data-i18n="premiumTier">THE CELEBRATION</span></p><h3 data-i18n="premiumName">Premium</h3>
+                    <p class="package-price"><span data-i18n="priceFrom">From</span> <strong>TSh 135,000</strong> <span data-i18n="perGuest">/ guest</span></p>
+                    <p class="package-description" data-i18n="premiumDescription">A considered menu and extra touches for an occasion you want to make more of.</p>
+                    <ul><li data-i18n="premiumFeatureOne">Private dining room</li><li data-i18n="premiumFeatureTwo">Chef’s four-course menu</li><li data-i18n="premiumFeatureThree">Welcome drink &amp; table styling</li><li data-i18n="premiumFeatureFour">Personal event host</li></ul>
+                    <a class="button button-dark" href="#inquiry"><span data-i18n="premiumEnquire">Enquire about Premium</span><span aria-hidden="true">↗</span></a>
                 </article>
                 <article class="package-card">
-                    <p class="package-tier">03 / THE OCCASION</p><h3>Signature</h3>
-                    <p class="package-price">From <strong>TSh 195,000</strong> <span>/ guest</span></p>
-                    <p class="package-description">An evening with every detail considered, from the first welcome to the final course.</p>
-                    <ul><li>Exclusive venue access</li><li>Custom tasting menu</li><li>Welcome reception &amp; styling</li><li>Dedicated planning support</li></ul>
-                    <a class="button button-outline-dark" href="#inquiry">Enquire about Signature <span aria-hidden="true">↗</span></a>
+                    <p class="package-tier"><span>03 / </span><span data-i18n="signatureTier">THE OCCASION</span></p><h3 data-i18n="signatureName">Signature</h3>
+                    <p class="package-price"><span data-i18n="priceFrom">From</span> <strong>TSh 195,000</strong> <span data-i18n="perGuest">/ guest</span></p>
+                    <p class="package-description" data-i18n="signatureDescription">An evening with every detail considered, from the first welcome to the final course.</p>
+                    <ul><li data-i18n="signatureFeatureOne">Exclusive venue access</li><li data-i18n="signatureFeatureTwo">Custom tasting menu</li><li data-i18n="signatureFeatureThree">Welcome reception &amp; styling</li><li data-i18n="signatureFeatureFour">Dedicated planning support</li></ul>
+                    <a class="button button-outline-dark" href="#inquiry"><span data-i18n="signatureEnquire">Enquire about Signature</span><span aria-hidden="true">↗</span></a>
                 </article>
             </div>
         </section>
 
         <section class="gallery section-pad" id="gallery">
             <div class="section-heading gallery-heading">
-                <div><p class="eyebrow"><span></span> A TASTE OF THE EVENING</p><h2>Gathered around <em>the table.</em></h2></div>
-                <p>Thoughtful plates, warm light, and the kind of setting that makes you want to stay a little longer.</p>
+                <div><p class="eyebrow"><span></span><span data-i18n="galleryEyebrow">A TASTE OF THE EVENING</span></p><h2><span data-i18n="galleryTitle">Gathered around</span> <em data-i18n="galleryTitleEmphasis">the table.</em></h2></div>
+                <p data-i18n="galleryDescription">Thoughtful plates, warm light, and the kind of setting that makes you want to stay a little longer.</p>
             </div>
             <div class="gallery-grid">
-                <figure class="gallery-item gallery-tall"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Warm, intimate restaurant dining room" loading="lazy"><figcaption>The room</figcaption></figure>
-                <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Freshly prepared colourful dinner served to share" loading="lazy"><figcaption>At the table</figcaption></figure>
-                <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Fresh seasonal salad with vibrant ingredients" loading="lazy"><figcaption>In season</figcaption></figure>
-                <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="A thoughtfully styled table ready for a celebration" loading="lazy"><figcaption>The little details</figcaption></figure>
-                <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="An elegant evening dining experience" loading="lazy"><figcaption>Made memorable</figcaption></figure>
+                <figure class="gallery-item gallery-tall"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Warm, intimate restaurant dining room" data-i18n-attr="alt:galleryImageOneAlt" loading="lazy"><figcaption data-i18n="galleryRoom">The room</figcaption></figure>
+                <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Freshly prepared colourful dinner served to share" data-i18n-attr="alt:galleryImageTwoAlt" loading="lazy"><figcaption data-i18n="galleryTable">At the table</figcaption></figure>
+                <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Fresh seasonal salad with vibrant ingredients" data-i18n-attr="alt:galleryImageThreeAlt" loading="lazy"><figcaption data-i18n="gallerySeason">In season</figcaption></figure>
+                <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="A thoughtfully styled table ready for a celebration" data-i18n-attr="alt:galleryImageFourAlt" loading="lazy"><figcaption data-i18n="galleryDetails">The little details</figcaption></figure>
+                <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="An elegant evening dining experience" data-i18n-attr="alt:galleryImageFiveAlt" loading="lazy"><figcaption data-i18n="galleryMemorable">Made memorable</figcaption></figure>
             </div>
-            <p class="gallery-credit">Photography shown for this demonstration from Unsplash.</p>
+            <p class="gallery-credit" data-i18n="galleryCredit">Photography shown for this demonstration from Unsplash.</p>
         </section>
 
         <section class="dining">
-            <div class="dining-image"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="A beautifully prepared meal made for sharing" loading="lazy"></div>
+            <div class="dining-image"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="A beautifully prepared meal made for sharing" data-i18n-attr="alt:diningImageAlt" loading="lazy"></div>
             <div class="dining-copy">
-                <p class="eyebrow eyebrow-light"><span></span> FOOD THAT BRINGS US TOGETHER</p>
-                <h2>Good things take <em>a seat at the table.</em></h2>
-                <p>Our approach is simple: thoughtful ingredients, generous flavours and food that feels just right for the moment. Whether it’s a shared feast or a menu made around you, every plate is part of the experience.</p>
-                <a class="text-link light-link" href="#inquiry">Tell us what you love <span aria-hidden="true">↗</span></a>
+                <p class="eyebrow eyebrow-light"><span></span><span data-i18n="diningEyebrow">FOOD THAT BRINGS US TOGETHER</span></p>
+                <h2><span data-i18n="diningTitle">Good things take</span> <em data-i18n="diningTitleEmphasis">a seat at the table.</em></h2>
+                <p data-i18n="diningDescription">Our approach is simple: thoughtful ingredients, generous flavours and food that feels just right for the moment. Whether it’s a shared feast or a menu made around you, every plate is part of the experience.</p>
+                <a class="text-link light-link" href="#inquiry"><span data-i18n="diningLink">Tell us what you love</span><span aria-hidden="true">↗</span></a>
             </div>
         </section>
 
         <section class="reasons section-pad" id="experience">
             <div class="section-heading centered-heading">
-                <p class="eyebrow"><span></span> THE DETAILS MAKE THE DIFFERENCE <span></span></p>
-                <h2>Considered from the <em>first hello.</em></h2>
+                <p class="eyebrow"><span></span><span data-i18n="reasonsEyebrow">THE DETAILS MAKE THE DIFFERENCE</span><span></span></p>
+                <h2><span data-i18n="reasonsTitle">Considered from the</span> <em data-i18n="reasonsTitleEmphasis">first hello.</em></h2>
             </div>
             <div class="reason-grid">
-                <article><span class="reason-icon">01</span><h3>Warm hospitality</h3><p>A welcoming team that looks after your guests and lets you enjoy your own celebration.</p></article>
-                <article><span class="reason-icon">02</span><h3>Menus with meaning</h3><p>Flexible dining options, thoughtfully prepared and tailored to the kind of gathering you have in mind.</p></article>
-                <article><span class="reason-icon">03</span><h3>Your own kind of evening</h3><p>Intimate dinners or lively celebrations, with the space and thoughtful details to make it yours.</p></article>
-                <article><span class="reason-icon">04</span><h3>Care in every detail</h3><p>From your first enquiry to the last goodbye, we’re here to make planning feel easy.</p></article>
+                <article><span class="reason-icon">01</span><h3 data-i18n="reasonHospitalityTitle">Warm hospitality</h3><p data-i18n="reasonHospitalityText">A welcoming team that looks after your guests and lets you enjoy your own celebration.</p></article>
+                <article><span class="reason-icon">02</span><h3 data-i18n="reasonMenusTitle">Menus with meaning</h3><p data-i18n="reasonMenusText">Flexible dining options, thoughtfully prepared and tailored to the kind of gathering you have in mind.</p></article>
+                <article><span class="reason-icon">03</span><h3 data-i18n="reasonEveningTitle">Your own kind of evening</h3><p data-i18n="reasonEveningText">Intimate dinners or lively celebrations, with the space and thoughtful details to make it yours.</p></article>
+                <article><span class="reason-icon">04</span><h3 data-i18n="reasonCareTitle">Care in every detail</h3><p data-i18n="reasonCareText">From your first enquiry to the last goodbye, we’re here to make planning feel easy.</p></article>
             </div>
         </section>
 
         <section class="testimonials section-pad">
             <div class="section-heading centered-heading">
-                <p class="eyebrow eyebrow-light"><span></span> KIND WORDS, JUST FOR THE DEMO <span></span></p>
-                <h2>Memories worth <em>sharing.</em></h2>
+                <p class="eyebrow eyebrow-light"><span></span><span data-i18n="testimonialsEyebrow">KIND WORDS, JUST FOR THE DEMO</span><span></span></p>
+                <h2><span data-i18n="testimonialsTitle">Memories worth</span> <em data-i18n="testimonialsTitleEmphasis">sharing.</em></h2>
             </div>
             <div class="testimonial-grid">
                 <article class="testimonial-card">
                     <span class="testimonial-mark" aria-hidden="true">“</span>
-                    <blockquote>The whole evening felt effortless. Beautiful food, a lovely room, and our family all around one table.</blockquote>
-                    <p class="testimonial-author">SAMPLE GUEST 01 <span>·</span> DEMO TESTIMONIAL</p>
+                    <blockquote data-i18n="testimonialOne">The whole evening felt effortless. Beautiful food, a lovely room, and our family all around one table.</blockquote>
+                    <p class="testimonial-author"><span data-i18n="sampleGuestOne">SAMPLE GUEST 01</span> <span>·</span> <span data-i18n="demoTestimonial">DEMO TESTIMONIAL</span></p>
                 </article>
                 <article class="testimonial-card">
                     <span class="testimonial-mark" aria-hidden="true">“</span>
-                    <blockquote>Every detail felt thoughtful, from the welcome to the last course. It was such a special way to celebrate.</blockquote>
-                    <p class="testimonial-author">SAMPLE GUEST 02 <span>·</span> DEMO TESTIMONIAL</p>
+                    <blockquote data-i18n="testimonialTwo">Every detail felt thoughtful, from the welcome to the last course. It was such a special way to celebrate.</blockquote>
+                    <p class="testimonial-author"><span data-i18n="sampleGuestTwo">SAMPLE GUEST 02</span> <span>·</span> <span data-i18n="demoTestimonial">DEMO TESTIMONIAL</span></p>
                 </article>
                 <article class="testimonial-card">
                     <span class="testimonial-mark" aria-hidden="true">“</span>
-                    <blockquote>We could relax and enjoy the moment together. The team made it feel warm, easy and completely our own.</blockquote>
-                    <p class="testimonial-author">SAMPLE GUEST 03 <span>·</span> DEMO TESTIMONIAL</p>
+                    <blockquote data-i18n="testimonialThree">We could relax and enjoy the moment together. The team made it feel warm, easy and completely our own.</blockquote>
+                    <p class="testimonial-author"><span data-i18n="sampleGuestThree">SAMPLE GUEST 03</span> <span>·</span> <span data-i18n="demoTestimonial">DEMO TESTIMONIAL</span></p>
                 </article>
             </div>
-            <p class="testimonial-disclaimer">All testimonials above are sample content created for this portfolio demonstration. They are not real customer reviews.</p>
+            <p class="testimonial-disclaimer" data-i18n="testimonialDisclaimer">All testimonials above are sample content created for this portfolio demonstration. They are not real customer reviews.</p>
         </section>
 
         <section class="inquiry section-pad" id="inquiry">
             <div class="inquiry-details">
-                <p class="eyebrow"><span></span> LET’S MAKE A PLAN</p>
-                <h2>Tell us what you’re <em>celebrating.</em></h2>
-                <p>Share a few details and we’ll start imagining an occasion that feels just right for you.</p>
+                <p class="eyebrow"><span></span><span data-i18n="inquiryEyebrow">LET’S MAKE A PLAN</span></p>
+                <h2><span data-i18n="inquiryTitle">Tell us what you’re</span> <em data-i18n="inquiryTitleEmphasis">celebrating.</em></h2>
+                <p data-i18n="inquiryDescription">Share a few details and we’ll start imagining an occasion that feels just right for you.</p>
                 <div class="contact-list">
-                    <a href="mailto:majaliway2@gmail.com"><span class="contact-label">EMAIL</span><span>majaliway2@gmail.com ↗</span></a>
-                    <a href="tel:0745652466"><span class="contact-label">PHONE</span><span>0745652466 ↗</span></a>
-                    <div><span class="contact-label">LOCATION</span><span>Dar es Salaam, Tanzania</span></div>
+                    <a href="mailto:majaliway2@gmail.com"><span class="contact-label" data-i18n="contactEmail">EMAIL</span><span>majaliway2@gmail.com ↗</span></a>
+                    <a href="tel:0745652466"><span class="contact-label" data-i18n="contactPhone">PHONE</span><span>0745652466 ↗</span></a>
+                    <div><span class="contact-label" data-i18n="contactLocation">LOCATION</span><span data-i18n="locationValue">Dar es Salaam, Tanzania</span></div>
                 </div>
-                <p class="contact-person">A personal note? Reach out to <strong>Majaliwa Yahaya</strong>.</p>
+                <p class="contact-person"><span data-i18n="contactPersonalNote">A personal note? Reach out to</span> <strong>Majaliwa Yahaya</strong>.</p>
             </div>
-            <form class="inquiry-form" id="event-form">
-                <p class="form-demo-note">DEMO INQUIRY FORM · No information is sent or stored.</p>
+            <form class="inquiry-form" id="event-form" novalidate>
+                <p class="form-demo-note" data-i18n="formDemoNote">DEMO INQUIRY FORM · No information is sent or stored.</p>
                 <div class="form-row">
-                    <label>Full name<input name="name" autocomplete="name" placeholder="Your name" required></label>
-                    <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+                    <label><span data-i18n="formName">Full name</span><input name="name" autocomplete="name" placeholder="Your name" data-i18n-attr="placeholder:formNamePlaceholder" required></label>
+                    <label><span data-i18n="formEmail">Email address</span><input name="email" type="email" autocomplete="email" placeholder="you@example.com" data-i18n-attr="placeholder:formEmailPlaceholder" required></label>
                 </div>
                 <div class="form-row">
-                    <label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="Your number" required></label>
-                    <label>What are you celebrating?
+                    <label><span data-i18n="formPhone">Phone number</span><input name="phone" type="tel" autocomplete="tel" placeholder="Your number" data-i18n-attr="placeholder:formPhonePlaceholder" required></label>
+                    <label><span data-i18n="formOccasion">What are you celebrating?</span>
                         <select name="event" required>
-                            <option value="" selected disabled>Select an occasion</option>
-                            <option>Birthday celebration</option><option>Wedding or engagement</option><option>Corporate event</option><option>Private dinner</option><option>Family celebration</option><option>Special occasion</option><option>Something else</option>
+                            <option value="" selected disabled data-i18n="formOccasionPlaceholder">Select an occasion</option>
+                            <option value="birthday" data-i18n="optionBirthday">Birthday celebration</option><option value="wedding" data-i18n="optionWedding">Wedding or engagement</option><option value="corporate" data-i18n="optionCorporate">Corporate event</option><option value="dinner" data-i18n="optionDinner">Private dinner</option><option value="family" data-i18n="optionFamily">Family celebration</option><option value="special" data-i18n="optionSpecial">Special occasion</option><option value="other" data-i18n="optionOther">Something else</option>
                         </select>
                     </label>
                 </div>
                 <div class="form-row">
-                    <label>Number of guests<input name="guests" type="number" min="1" max="500" placeholder="e.g. 20" required></label>
-                    <label>Preferred date<input name="date" type="date" required></label>
+                    <label><span data-i18n="formGuests">Number of guests</span><input name="guests" type="number" min="1" max="500" placeholder="e.g. 20" data-i18n-attr="placeholder:formGuestsPlaceholder" required></label>
+                    <label><span data-i18n="formDate">Preferred date</span><input name="date" type="date" required></label>
                 </div>
-                <label>Your message<textarea name="message" rows="4" placeholder="Tell us a little about your plans..." required></textarea></label>
-                <button class="button button-dark form-submit" type="submit">Send your enquiry <span aria-hidden="true">↗</span></button>
+                <label><span data-i18n="formMessage">Your message</span><textarea name="message" rows="4" placeholder="Tell us a little about your plans..." data-i18n-attr="placeholder:formMessagePlaceholder" required></textarea></label>
+                <button class="button button-dark form-submit" type="submit"><span data-i18n="formSubmit">Send your enquiry</span><span aria-hidden="true">↗</span></button>
                 <p class="form-response" id="form-response" role="status" aria-live="polite"></p>
             </form>
         </section>
@@ -217,11 +222,11 @@
 
     <footer class="site-footer">
         <div class="footer-top">
-            <a class="brand footer-brand" href="#home" aria-label="Majaliwa Restaurant home"><span class="brand-mark" aria-hidden="true">M</span><span class="brand-copy"><span>MAJALIWA</span><small>RESTAURANT · DAR ES SALAAM</small></span></a>
-            <p>Good food. Good company.<br>Something worth celebrating.</p>
-            <a class="footer-top-link" href="#home">Back to top ↑</a>
+            <a class="brand footer-brand" href="#home" aria-label="Majaliwa Restaurant home" data-i18n-aria="brandHome"><span class="brand-mark" aria-hidden="true">M</span><span class="brand-copy"><span>MAJALIWA</span><small data-i18n="brandLocation">RESTAURANT · DAR ES SALAAM</small></span></a>
+            <p><span data-i18n="footerLineOne">Good food. Good company.</span><br><span data-i18n="footerLineTwo">Something worth celebrating.</span></p>
+            <a class="footer-top-link" href="#home" data-i18n="backToTop">Back to top ↑</a>
         </div>
-        <div class="footer-bottom"><span>© <span id="year">2026</span> MAJALIWA RESTAURANT</span><span>Dar es Salaam, Tanzania</span><span>PORTFOLIO DEMONSTRATION · NOT A LIVE RESTAURANT BOOKING SITE</span></div>
+        <div class="footer-bottom"><span>© <span id="year">2026</span> MAJALIWA RESTAURANT</span><span data-i18n="footerLocation">Dar es Salaam, Tanzania</span><span data-i18n="footerDisclaimer">PORTFOLIO DEMONSTRATION · NOT A LIVE RESTAURANT BOOKING SITE</span></div>
     </footer>
 </body>
 </html>
