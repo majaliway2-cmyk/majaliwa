@@ -30,3 +30,32 @@ test("budget field offers only the four requested ranges", () => {
     const values = [...budgetSelect.matchAll(/<option value="([^"]*)"/g)].map(([, value]) => value);
     assert.deepEqual(values, ["", "50000-100000", "100000-150000", "150000-200000", "250000-300000"]);
 });
+
+test("home page clearly explains the offer, pricing, and next steps", async () => {
+    const homeHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
+    assert.match(homeHtml, /Professional Websites That Help Your Business Grow/);
+    assert.match(homeHtml, /modern,\s*responsive and affordable\s+websites for businesses, companies and individuals in Tanzania/i);
+    assert.match(homeHtml, /Start Your Website/);
+    assert.match(homeHtml, /Explore Services/);
+    assert.match(homeHtml, /TSh\s+50,000\s+–\s+100,000/);
+    assert.match(homeHtml, /TSh\s+100,000\s+–\s+150,000/);
+    assert.match(homeHtml, /TSh\s+150,000\s+–\s+200,000/);
+    assert.match(homeHtml, /TSh\s+250,000\s+–\s+300,000/);
+    assert.match(homeHtml, /final\s+price depends on your requirements/i);
+    assert.match(homeHtml, /Contact Me/);
+    assert.match(homeHtml, /Discuss Your Requirements/);
+    assert.match(homeHtml, /I Build Your Website/);
+    assert.match(homeHtml, /Your Website Goes Live/);
+    assert.match(homeHtml, /Request a Website Quote/);
+    assert.match(homeHtml, /Ready to Take Your Business Online\?/);
+});
+
+test("home SEO and contact details are present without WhatsApp actions", async () => {
+    const homeHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
+    assert.match(homeHtml, /Website Design Tanzania \| Majaliwa Yahaya/);
+    assert.match(homeHtml, /website developer in Tanzania/i);
+    assert.match(homeHtml, /affordable business websites and modern website design/i);
+    assert.match(homeHtml, /href="tel:0745652466">0745652466/);
+    assert.match(homeHtml, /href="mailto:majaliway2@gmail\.com">majaliway2@gmail\.com/);
+    assert.doesNotMatch(homeHtml, /https?:\/\/(?:wa\.me|api\.whatsapp\.com)/i);
+});
