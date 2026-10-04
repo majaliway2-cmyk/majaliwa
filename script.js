@@ -247,6 +247,11 @@ Object.assign(translations.en, {
     portfolioSalonDescription: "Modern bilingual salon website designed for a professional beauty business, featuring services, gallery, appointment booking, contact information and English & Kiswahili language support.",
     portfolioSalonView: "View Project",
     portfolioSalonAria: "View the Majaliwa Beauty Studio salon website demo",
+    portfolioSchoolCategory: "Education · School Website",
+    portfolioSchoolTitle: "Majaliwa International School",
+    portfolioSchoolDescription: "A premium bilingual school website concept showcasing academics, admissions, student life and the school community.",
+    portfolioSchoolView: "View Project",
+    portfolioSchoolAria: "View the Majaliwa International School website demo",
     portfolioDemoNote: "Concept website · Portfolio demo"
 });
 
@@ -316,6 +321,11 @@ Object.assign(translations.sw, {
     portfolioSalonDescription: "Tovuti ya kisasa ya saluni inayotumia Kiingereza na Kiswahili, iliyoundwa kwa biashara ya urembo ya kitaalamu. Ina huduma, picha, miadi, mawasiliano na chaguo la lugha.",
     portfolioSalonView: "Tazama Mradi",
     portfolioSalonAria: "Tazama mfano wa tovuti ya saluni ya Majaliwa Beauty Studio",
+    portfolioSchoolCategory: "Elimu · Tovuti ya Shule",
+    portfolioSchoolTitle: "Majaliwa International School",
+    portfolioSchoolDescription: "Mfano wa tovuti ya shule ya kisasa kwa Kiingereza na Kiswahili, unaoonesha masomo, udahili, maisha ya wanafunzi na jumuiya ya shule.",
+    portfolioSchoolView: "Tazama Mradi",
+    portfolioSchoolAria: "Tazama mfano wa tovuti ya Majaliwa International School",
     portfolioDemoNote: "Tovuti ya mfano · Kwa jalada la kazi"
 });
 

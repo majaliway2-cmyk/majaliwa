@@ -7,20 +7,64 @@ const demoHtml = await readFile(new URL("../projects/restaurant-demo/index.html"
 const demoScript = await readFile(new URL("../projects/restaurant-demo/script.js", import.meta.url), "utf8");
 const beautyHtml = await readFile(new URL("../projects/beauty-studio/index.html", import.meta.url), "utf8");
 const beautyScript = await readFile(new URL("../projects/beauty-studio/script.js", import.meta.url), "utf8");
+const schoolHtml = await readFile(new URL("../projects/school-demo/index.html", import.meta.url), "utf8");
+const schoolScript = await readFile(new URL("../projects/school-demo/script.js", import.meta.url), "utf8");
 const netlifyConfig = await readFile(new URL("../netlify.toml", import.meta.url), "utf8");
 
-test("home portfolio cards link to their demos and the salon uses a local screenshot preview", async () => {
+test("home portfolio cards link to each demo and use local screenshot previews", async () => {
     assert.match(homeHtml, /class="portfolio-card"\s+href="\/projects\/restaurant-demo\/"/);
     assert.match(homeHtml, /class="portfolio-card"\s+href="\/projects\/beauty-studio\/"/);
     assert.match(homeHtml, /Salon &amp; Beauty Website/);
     assert.match(homeHtml, /Modern bilingual salon website designed for a professional beauty business, featuring services, gallery, appointment booking, contact information and English &amp; Kiswahili language support\./);
     assert.match(homeHtml, /src="\/projects\/beauty-studio\/preview\.jpg"/);
     assert.match(homeHtml, /alt="Preview of the Majaliwa Beauty Studio salon website"/);
+    assert.match(homeHtml, /class="portfolio-card"\s+href="\/projects\/school-demo\/"/);
+    assert.match(homeHtml, /src="\/projects\/school-demo\/preview\.jpg"/);
+    assert.match(homeHtml, /alt="Preview of the Majaliwa International School website"/);
+    assert.match(homeHtml, /A premium bilingual school website concept showcasing academics, admissions, student life and the school community\./);
     assert.match(homeHtml, /data-i18n="portfolioViewProject">View\s+Project/);
     assert.match(netlifyConfig, /\[build\][\s\S]*?publish\s*=\s*"\."/);
     const previewImage = await readFile(new URL("../projects/beauty-studio/preview.jpg", import.meta.url));
     assert.equal(previewImage.readUInt16BE(0), 0xffd8, "the local portfolio preview should be a JPEG");
     assert.ok(previewImage.length > 100_000, "the portfolio preview should retain high-resolution image detail");
+    const schoolPreview = await readFile(new URL("../projects/school-demo/preview.jpg", import.meta.url));
+    assert.equal(schoolPreview.readUInt16BE(0), 0xffd8, "the school portfolio preview should be a JPEG");
+    assert.ok(schoolPreview.length > 100_000, "the school preview should retain high-resolution image detail");
+});
+
+test("school demo includes requested sections, safe demo content, and bilingual translation keys", async () => {
+    assert.match(schoolHtml, /<title[^>]*>Majaliwa International School \| Quality Education in Tanzania<\/title>/);
+    assert.match(schoolHtml, /property="og:title"/);
+    assert.match(schoolHtml, /id="contact-form"/);
+    assert.match(schoolHtml, /0745652466/);
+    assert.match(schoolHtml, /majaliway2@gmail\.com/);
+    assert.match(schoolHtml, /https:\/\/wa\.me\/255745652466/);
+    assert.match(schoolHtml, /Demo Testimonial|data-i18n="demoTestimonial"/i);
+    assert.match(schoolHtml, /Sample Fees|data-i18n="feesSampleLabel"/i);
+    assert.match(schoolHtml, /data-lightbox/);
+    assert.match(schoolScript, /localStorage\.setItem/);
+
+    const englishStart = schoolScript.indexOf("    en: {");
+    const swahiliStart = schoolScript.indexOf("    sw: {");
+    const dictionaryEnd = schoolScript.indexOf("\n};", swahiliStart);
+    assert.ok(englishStart >= 0 && swahiliStart > englishStart && dictionaryEnd > swahiliStart,
+        "both school-language dictionaries should be defined");
+    const englishKeys = new Set([...schoolScript.slice(englishStart, swahiliStart).matchAll(/^\s{8}(\w+):/gm)].map(([, key]) => key));
+    const swahiliKeys = new Set([...schoolScript.slice(swahiliStart, dictionaryEnd).matchAll(/^\s{8}(\w+):/gm)].map(([, key]) => key));
+    const referencedKeys = new Set();
+
+    for (const [, attribute, value] of schoolHtml.matchAll(/\b(data-i18n(?:-aria|-attr)?)="([^"]+)"/g)) {
+        if (attribute === "data-i18n-attr") {
+            for (const mapping of value.split(/\s+/)) referencedKeys.add(mapping.split(":")[1]);
+        } else {
+            referencedKeys.add(value);
+        }
+    }
+
+    for (const key of referencedKeys) {
+        assert.ok(englishKeys.has(key), `School English translation missing: ${key}`);
+        assert.ok(swahiliKeys.has(key), `School Kiswahili translation missing: ${key}`);
+    }
 });
 
 test("beauty studio demo is a standalone, accessible appointment experience", async () => {
