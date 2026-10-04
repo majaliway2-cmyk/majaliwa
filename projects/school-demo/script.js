@@ -636,10 +636,12 @@
   const navigation = document.querySelector(".primary-nav");
   const contactForm = document.querySelector("#contact-form");
   const formStatus = document.querySelector("#form-status");
+  if (navigation) navigation.inert = window.matchMedia("(max-width: 900px)").matches;
   let currentLanguage = localStorage.getItem(STORAGE_KEY) === "sw" ? "sw" : "en";
   let lastGalleryTrigger = null;
   let currentGalleryItems = [];
   let currentGalleryIndex = 0;
+  let submittedMailto = "";
 
   function updateLanguage(language, persist = true) {
     currentLanguage = language === "sw" ? "sw" : "en";
@@ -666,7 +668,10 @@
     });
     if (menuToggle) menuToggle.setAttribute("aria-label", translations[currentLanguage][navigationIsOpen() ? "closeNavigation" : "openNavigation"]);
     if (persist) localStorage.setItem(STORAGE_KEY, currentLanguage);
-    clearFormErrors();
+    fields.forEach((field) => {
+      if (field.input.hasAttribute("aria-invalid")) validateField(field);
+    });
+    if (submittedMailto) renderFormStatus();
   }
 
   function navigationIsOpen() {
@@ -678,7 +683,9 @@
     menuToggle.setAttribute("aria-expanded", String(open));
     menuToggle.setAttribute("aria-label", translations[currentLanguage][open ? "closeNavigation" : "openNavigation"]);
     navigation.classList.toggle("is-open", open);
-    document.body.classList.toggle("menu-open", open && window.matchMedia("(max-width: 900px)").matches);
+    const isMobile = window.matchMedia("(max-width: 900px)").matches;
+    navigation.inert = !open && isMobile;
+    document.body.classList.toggle("menu-open", open && isMobile);
     if (!open) menuToggle.focus();
   }
 
@@ -694,11 +701,13 @@
       if (event.key === "Escape" && navigationIsOpen()) setMenuOpen(false);
     });
     window.addEventListener("resize", () => {
-      if (window.matchMedia("(min-width: 901px)").matches && navigationIsOpen()) {
+      const isMobile = window.matchMedia("(max-width: 900px)").matches;
+      if (!isMobile && navigationIsOpen()) {
         navigation.classList.remove("is-open");
         menuToggle.setAttribute("aria-expanded", "false");
         document.body.classList.remove("menu-open");
       }
+      navigation.inert = isMobile && !navigationIsOpen();
     });
   }
 
@@ -759,7 +768,13 @@
     const input = field.input;
     if (!input.value.trim()) return translations[currentLanguage].validationRequired;
     if (field.message === "validationName" && input.value.trim().length < 2) return translations[currentLanguage].validationName;
-    if (field.message === "validationPhone" && !/^\+?[\d\s().-]{7,20}$/.test(input.value.trim())) return translations[currentLanguage].validationPhone;
+    if (field.message === "validationPhone") {
+      const phone = input.value.trim();
+      const digitCount = phone.replace(/\D/g, "").length;
+      if (!/^\+?[\d\s().-]{7,24}$/.test(phone) || digitCount < 7 || digitCount > 15) {
+        return translations[currentLanguage].validationPhone;
+      }
+    }
     if (field.message === "validationEmail" && (input.validity.typeMismatch || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()))) return translations[currentLanguage].validationEmail;
     if (field.message === "validationMessage" && input.value.trim().length < 10) return translations[currentLanguage].validationMessage;
     return "";
@@ -771,20 +786,29 @@
     field.input.setCustomValidity(message);
     return !message;
   }
-  function clearFormErrors() {
-    fields.forEach((field) => {
-      field.error.textContent = "";
-      field.input.removeAttribute("aria-invalid");
-      field.input.setCustomValidity("");
-    });
-    formStatus.hidden = true;
-    formStatus.replaceChildren();
+  function renderFormStatus(focus = false) {
+    const translationsForLanguage = translations[currentLanguage];
+    formStatus.replaceChildren(document.createTextNode(`${translationsForLanguage.formReady} `));
+    const emailLink = document.createElement("a");
+    emailLink.href = submittedMailto;
+    emailLink.textContent = translationsForLanguage.openEmail;
+    formStatus.append(emailLink, document.createElement("br"), document.createTextNode(`${translationsForLanguage.mailtoUnavailable} `));
+    const address = document.createElement("a");
+    address.href = "mailto:majaliway2@gmail.com";
+    address.textContent = "majaliway2@gmail.com";
+    formStatus.append(address);
+    formStatus.hidden = false;
+    if (focus) formStatus.focus();
   }
   fields.forEach((field) => {
     field.input.addEventListener("blur", () => validateField(field));
     field.input.addEventListener("input", () => {
       if (field.input.hasAttribute("aria-invalid")) validateField(field);
-      if (!formStatus.hidden) { formStatus.hidden = true; formStatus.replaceChildren(); }
+      if (!formStatus.hidden) {
+        submittedMailto = "";
+        formStatus.hidden = true;
+        formStatus.replaceChildren();
+      }
     });
   });
   contactForm.addEventListener("submit", (event) => {
@@ -799,17 +823,8 @@
     const emailLabel = currentLanguage === "en" ? "Email" : "Barua pepe";
     const body = `${nameLabel}: ${values.name}\n${phoneLabel}: ${values.phone}\n${emailLabel}: ${values.email}\n\n${values.message}`;
     const mailto = `mailto:majaliway2@gmail.com?subject=${encodeURIComponent(String(values.subject))}&body=${encodeURIComponent(body)}`;
-    formStatus.replaceChildren(document.createTextNode(`${translations[currentLanguage].formReady} `));
-    const emailLink = document.createElement("a");
-    emailLink.href = mailto;
-    emailLink.textContent = translations[currentLanguage].openEmail;
-    formStatus.append(emailLink, document.createElement("br"), document.createTextNode(`${translations[currentLanguage].mailtoUnavailable} `));
-    const address = document.createElement("a");
-    address.href = "mailto:majaliway2@gmail.com";
-    address.textContent = "majaliway2@gmail.com";
-    formStatus.append(address);
-    formStatus.hidden = false;
-    formStatus.focus();
+    submittedMailto = mailto;
+    renderFormStatus(true);
   });
   updateLanguage(currentLanguage, false);
 })();
