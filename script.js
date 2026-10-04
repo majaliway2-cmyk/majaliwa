@@ -242,6 +242,11 @@ Object.assign(translations.en, {
     portfolioProjectTitle: "Majaliwa Restaurant",
     portfolioProjectDescription: "An elegant restaurant and private-events website concept, with event packages, a gallery, and a demo inquiry form.",
     portfolioViewProject: "View Project",
+    portfolioSalonCategory: "Salon & Beauty Website",
+    portfolioSalonTitle: "Majaliwa Beauty Studio",
+    portfolioSalonDescription: "A premium, responsive website concept designed for salons and beauty businesses, featuring services, gallery, appointment booking and contact sections.",
+    portfolioSalonView: "View Project",
+    portfolioSalonAria: "View the Majaliwa Beauty Studio salon website demo",
     portfolioDemoNote: "Concept website · Portfolio demo"
 });
 
@@ -306,6 +311,11 @@ Object.assign(translations.sw, {
     portfolioProjectTitle: "Majaliwa Restaurant",
     portfolioProjectDescription: "Mfano wa tovuti maridadi ya mgahawa na matukio binafsi, yenye vifurushi, picha na fomu ya maulizo ya majaribio.",
     portfolioViewProject: "Tazama Mradi",
+    portfolioSalonCategory: "Tovuti ya Saluni na Urembo",
+    portfolioSalonTitle: "Majaliwa Beauty Studio",
+    portfolioSalonDescription: "Mfano wa tovuti ya kisasa inayobadilika kulingana na kifaa, iliyoundwa kwa ajili ya saluni na biashara za urembo, ikiwa na huduma, picha, miadi na mawasiliano.",
+    portfolioSalonView: "Tazama Mradi",
+    portfolioSalonAria: "Tazama mfano wa tovuti ya saluni ya Majaliwa Beauty Studio",
     portfolioDemoNote: "Tovuti ya mfano · Kwa jalada la kazi"
 });
 

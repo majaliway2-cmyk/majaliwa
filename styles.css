@@ -632,6 +632,11 @@ h3 {
     line-height: 1.7
 }
 
+.portfolio-project-grid {
+    display: grid;
+    gap: 24px
+}
+
 .portfolio-card {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
