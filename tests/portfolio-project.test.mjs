@@ -42,6 +42,21 @@ test("school demo includes requested sections, safe demo content, and bilingual 
     assert.match(schoolHtml, /Demo Testimonial|data-i18n="demoTestimonial"/i);
     assert.match(schoolHtml, /Sample Fees|data-i18n="feesSampleLabel"/i);
     assert.match(schoolHtml, /data-lightbox/);
+    assert.match(schoolHtml, /text019">Learning Today\. Leading Tomorrow\./);
+    assert.match(schoolHtml, /text242">Learn More/);
+    assert.match(schoolHtml, /text243">Contact Admissions/);
+    assert.match(schoolHtml, /text244">Request Fee Information/);
+    assert.match(schoolHtml, /text254">Discover a learning environment designed to inspire curiosity, confidence and lifelong growth\./);
+    assert.match(schoolHtml, /text255">Contact Us/);
+    assert.match(schoolHtml, /text256">© 2026 Majaliwa International School\. Demo Website\./);
+    assert.match(schoolHtml, /class="footer-language"/);
+    assert.match(schoolHtml, /data-i18n="text257">Language/);
+    assert.equal([...schoolHtml.matchAll(/class="teacher-card"/g)].length, 4);
+    assert.equal([...schoolHtml.matchAll(/class="event-row"/g)].length, 5);
+    assert.equal([...schoolHtml.matchAll(/class="step-index"/g)].length, 4);
+    for (const item of ["Home", "About School", "Academics", "Teachers", "Gallery", "Admissions", "Fees", "Contact"]) {
+        assert.ok(schoolHtml.includes(`>${item}</a>`), `School navigation should include ${item}`);
+    }
     assert.match(schoolScript, /localStorage\.setItem/);
 
     const englishStart = schoolScript.indexOf("    en: {");
