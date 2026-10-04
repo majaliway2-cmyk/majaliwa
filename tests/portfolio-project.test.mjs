@@ -10,6 +10,18 @@ const beautyScript = await readFile(new URL("../projects/beauty-studio/script.js
 const schoolHtml = await readFile(new URL("../projects/school-demo/index.html", import.meta.url), "utf8");
 const schoolScript = await readFile(new URL("../projects/school-demo/script.js", import.meta.url), "utf8");
 const netlifyConfig = await readFile(new URL("../netlify.toml", import.meta.url), "utf8");
+const siteStyles = await Promise.all([
+    "styles.css",
+    "projects/beauty-studio/styles.css",
+    "projects/restaurant-demo/styles.css",
+    "projects/school-demo/styles.css"
+].map((path) => readFile(new URL(`../${path}`, import.meta.url), "utf8")));
+
+test("Netlify's injected promotional badge is hidden on every site section", () => {
+    for (const styles of siteStyles) {
+        assert.match(styles, /#nl-badge-frame\s*\{\s*display:\s*none\s*!important\s*;?\s*\}/);
+    }
+});
 
 test("home portfolio cards link to each demo and use local screenshot previews", async () => {
     assert.match(homeHtml, /class="portfolio-card"\s+href="\/projects\/restaurant-demo\/"/);

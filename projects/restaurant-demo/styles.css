@@ -304,3 +304,7 @@ h1 em, h2 em { font-weight: 400 }
     .event-card { min-height: 215px }
     .hero-foot span:first-child { max-width: 125px }
 }
+
+#nl-badge-frame {
+    display: none !important
+}

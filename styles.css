@@ -3729,3 +3729,7 @@ main p:not(.eyebrow):not(.card-index):not(.form-status):not(.payment-status):not
         animation: none
     }
 }
+
+#nl-badge-frame {
+    display: none !important
+}
