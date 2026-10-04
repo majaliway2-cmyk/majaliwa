@@ -9,13 +9,18 @@ const beautyHtml = await readFile(new URL("../projects/beauty-studio/index.html"
 const beautyScript = await readFile(new URL("../projects/beauty-studio/script.js", import.meta.url), "utf8");
 const netlifyConfig = await readFile(new URL("../netlify.toml", import.meta.url), "utf8");
 
-test("home portfolio card links to the deployable restaurant demo route", () => {
+test("home portfolio cards link to their demos and the salon uses a local screenshot preview", async () => {
     assert.match(homeHtml, /class="portfolio-card"\s+href="\/projects\/restaurant-demo\/"/);
     assert.match(homeHtml, /class="portfolio-card"\s+href="\/projects\/beauty-studio\/"/);
     assert.match(homeHtml, /Salon &amp; Beauty Website/);
-    assert.match(homeHtml, /A premium, responsive website concept designed for salons and beauty businesses, featuring services, gallery, appointment booking and contact sections\./);
+    assert.match(homeHtml, /Modern bilingual salon website designed for a professional beauty business, featuring services, gallery, appointment booking, contact information and English &amp; Kiswahili language support\./);
+    assert.match(homeHtml, /src="\/projects\/beauty-studio\/preview\.jpg"/);
+    assert.match(homeHtml, /alt="Preview of the Majaliwa Beauty Studio salon website"/);
     assert.match(homeHtml, /data-i18n="portfolioViewProject">View\s+Project/);
     assert.match(netlifyConfig, /\[build\][\s\S]*?publish\s*=\s*"\."/);
+    const previewImage = await readFile(new URL("../projects/beauty-studio/preview.jpg", import.meta.url));
+    assert.equal(previewImage.readUInt16BE(0), 0xffd8, "the local portfolio preview should be a JPEG");
+    assert.ok(previewImage.length > 100_000, "the portfolio preview should retain high-resolution image detail");
 });
 
 test("beauty studio demo is a standalone, accessible appointment experience", async () => {

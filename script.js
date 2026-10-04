@@ -244,7 +244,7 @@ Object.assign(translations.en, {
     portfolioViewProject: "View Project",
     portfolioSalonCategory: "Salon & Beauty Website",
     portfolioSalonTitle: "Majaliwa Beauty Studio",
-    portfolioSalonDescription: "A premium, responsive website concept designed for salons and beauty businesses, featuring services, gallery, appointment booking and contact sections.",
+    portfolioSalonDescription: "Modern bilingual salon website designed for a professional beauty business, featuring services, gallery, appointment booking, contact information and English & Kiswahili language support.",
     portfolioSalonView: "View Project",
     portfolioSalonAria: "View the Majaliwa Beauty Studio salon website demo",
     portfolioDemoNote: "Concept website · Portfolio demo"
@@ -313,7 +313,7 @@ Object.assign(translations.sw, {
     portfolioViewProject: "Tazama Mradi",
     portfolioSalonCategory: "Tovuti ya Saluni na Urembo",
     portfolioSalonTitle: "Majaliwa Beauty Studio",
-    portfolioSalonDescription: "Mfano wa tovuti ya kisasa inayobadilika kulingana na kifaa, iliyoundwa kwa ajili ya saluni na biashara za urembo, ikiwa na huduma, picha, miadi na mawasiliano.",
+    portfolioSalonDescription: "Tovuti ya kisasa ya saluni inayotumia Kiingereza na Kiswahili, iliyoundwa kwa biashara ya urembo ya kitaalamu. Ina huduma, picha, miadi, mawasiliano na chaguo la lugha.",
     portfolioSalonView: "Tazama Mradi",
     portfolioSalonAria: "Tazama mfano wa tovuti ya saluni ya Majaliwa Beauty Studio",
     portfolioDemoNote: "Tovuti ya mfano · Kwa jalada la kazi"
